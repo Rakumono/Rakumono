@@ -6,7 +6,11 @@ gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+# gem 'sass-rails', '~> 4.0.3'
+# Use therubyracer
+gem 'therubyracer'
+# Use less for stylesheets
+gem 'less-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -38,3 +42,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use bootstrap
+gem 'twitter-bootstrap-rails'
+
+# Use execjs
+gem 'execjs'

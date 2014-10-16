@@ -1,0 +1,35 @@
+.top-star img {width:150px; height:150px;}
+
+.star-box {}
+.star-box {text-align:center;}
+.star-nick {margin-top:15px;}
+.clear{clear:both;}
+
+.card-hd {width:300px; height:300px; position:relative; overflow:hidden;}
+.commodity-price {position:absolute; bottom:5px; right:5px;}
+.cardlist {list-style:none; clear:both}
+.cardlist li {height:450px;}
+.pick-list h5 {font-weight:bold; margin-bottom: 20px;}
+
+/*.cardlist  {float:left; margin-bottom:20px; height:450px; width:300px; background:MintCream; position:relative;}
+.carditem-mid {margin-left:40px; margin-right:40px;}*/
+.card-title, .publisher-box, .card-info {padding-left:20px;}
+
+.card-relation {position:absolute; bottom:10px; left:50%;}
+
+.list-life {background:MintCream}
+.list-header{ font-size:1.5em; line-height:3em; height:3em; vertical-align:middle; padding-left:2em; clear:both; }
+.list-header a{font-size:1.5em;}
+.list-header-title {float:left;}
+.list-header-right {float:right; margin-right:20px;}
+
+
+.form-signin { max-width: 330px;padding: 15px; margin: 0 auto;}
+
+.form-signin .form-control {margin-bottom:20px;}
+
+
+.commodity-box {margin-bottom: 30px;}
+
+.search-info ul{list-style:none; clear:both}
+.search-info li {list-style:none; float:left; padding:0px 20px;}
