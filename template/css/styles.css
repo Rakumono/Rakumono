@@ -30,3 +30,6 @@
 
 
 .commodity-box {margin-bottom: 30px;}
+
+.search-info ul{list-style:none; clear:both}
+.search-info li {list-style:none; float:left; padding:0px 20px;}
