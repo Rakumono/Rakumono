@@ -47,3 +47,8 @@ gem 'twitter-bootstrap-rails'
 
 # Use execjs
 gem 'execjs'
+
+
+
+# Use devise
+gem 'devise'
