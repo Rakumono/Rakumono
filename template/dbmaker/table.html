@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+
+  <title>TABLE</title>
+  <meta name="description" content="template">
+  <meta name="author" content="Gen">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="js/bootstrap/css/bootstrap.css">
+  <script src="js/jquery-1.11.1.min.js" ></script>
+  <script src="js/bootstrap/js/bootstrap.js"></script>
+  
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  
+  <div class="container page">
+    <div class="row">
+      <div class="col-sm-10">
+	<form role="form">
+	  <h2>Table Information</h2>
+	  <div class="col-sm-5">
+	    
+	    <input type="text" class="form-control" placeholder="table name" required />
+	  </div>
+	  
+	  <table class="table">
+	    <thead>
+	      <tr><th>seq</th><th>name</th><th>type</th><th>operation</th><th>comments</th></tr>
+	    </thead>
+	    <tbody>
+<!--
+	      <tr><td>1</td><td><input type="text" class="form-control" placeholder="column name" required /></td><td><input type="text" class="form-control" placeholder="type" required /></td><td><label>pk<input type="checkbox" value="pk" /></label>
+<label>nn<input type="checkbox" value="nn" /></label>
+		<label>ai<input type="checkbox" value="ai"/></label></td><td>
+<input type="text" id="comments" class="form-control comments" placeholder="comments" class="auto-generate" /></td><td></td></tr>-->
+	    </tbody>
+	  </table>
+
+	  <button class="btn btn-lg btn-primary btn-block" type="submit">save</button>
+	  <br />
+	  <button class="btn btn-lg btn-primary">download ror model</button>
+	  <button class="btn btn-lg btn-primary">download mysql create sql</button>
+	</form>
+	
+      </div>
+    </div>
+  </div>
+  <script src="js/scripts.js"></script>
+  <script type="text/javascript">
+    var i = 0;
+    function generate_line() 
+    {
+    i++;
+    $(".table tbody").append('<tr><td>' + i + '</td><td><input type="text" class="form-control name" placeholder="column name" required /></td><td><input type="text" class="form-control" placeholder="type" required /></td><td><label>pk<input type="checkbox" value="pk" /></label><label>nn<input type="checkbox" value="nn" /></label><label>ai<input type="checkbox" value="ai"/></label></td><td><input type="text" class="form-control comments" placeholder="comments" class="auto-generate" /></td><td></td></tr>');
+    add_tabable();
+    }
+    function add_tabable() {
+    $(".name").focus(function(){
+    if ($(this).is($(".name").last())) {
+    generate_line();
+    }
+    });
+    }
+    $(document).ready(function(){
+    generate_line();
+    
+    });
+    
+  </script>
+</body>
+</html>
