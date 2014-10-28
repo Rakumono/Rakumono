@@ -1,2 +1,26 @@
-.container {
-  background: #111111; }
+.header {
+  color: white; }
+  .header nav {
+    height: 50px;
+    background: rgba(200, 120, 120, 0.7); }
+  .header a {
+    color: white; }
+  .header :hover {
+    backround: rgba(230, 110, 110, 0.7); }
+
+#page {
+  background: gainsboro; }
+
+#page > section {
+  padding-top: 50px; }
+
+#navigation-container .navigation-title {
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
+  padding-left: 30px; }
+#navigation-container .navigation-box {
+  height: 50px;
+  display: block; }
+#navigation-container .soccer {
+  background: green; }

@@ -1,4 +1,52 @@
 
-$background-color: #111111;
+$header-color-base: rgba(200, 120, 120, 0.7);
+$background-color: rgb(220, 220, 220);
+$header-fore-color: rgb(255,255, 255);
+$header-hover-color: rgba(230, 110, 110, 0.7);
+$header-nav-height: 50px;
+$navigation-title-height: 50px;
+$navigation-title-padding-left: 30px;
+$navigation-box-height: 50px;
+.header {
+  color: $header-fore-color;
+  nav {
+    height: $header-nav-height;
+    background: $header-color-base; 
+  }
+  a {
+    color: $header-fore-color;
+  }
+  :hover {
+    backround: $header-hover-color;
+  }
+}
 
-.container {background: $background-color;}
+#page {background: $background-color;}
+
+#page>section {
+  padding-top:$header-nav-height;	      
+}
+
+#navigation-container{
+  .navigation-title {
+    height: $navigation-title-height;
+    line-height: $navigation-title-height;
+    vertical-align: middle;
+    padding-left: $navigation-title-padding-left;
+  //  background: white;
+    
+  }
+  .clothes-title {
+    
+  }
+
+  .navigation-box {
+    height: $navigation-box-height;
+    display:block;
+    
+  }
+  .soccer {
+    background: green;
+  }
+}
+
