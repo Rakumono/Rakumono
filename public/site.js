@@ -15,7 +15,7 @@
     }
     var theUI = JSON.parse($.ajax({
 	type: 'GET',
-	url: 'http://localhost:4567/nodes.json',
+	url: 'nodes.json',
 	dataType: 'json',
 	async: false
     }).responseText)
@@ -77,7 +77,7 @@
 			    ctx.drawImage(image,pt.x-190,pt.y+4);
 			}
 			ctx.font = '13pt Monospace';
-			ctx.fillStyle = '#111';
+			ctx.fillStyle = 'red';
 			var height = 19
 			var lineLength = 14
 			var tmpLine = node.data.caption
@@ -374,7 +374,7 @@
 
 
 	var sys = arbor.ParticleSystem()
-	sys.parameters({stiffness:900, repulsion:100, gravity:0, dt:0.006})
+	sys.parameters({stiffness:900, repulsion:200, gravity:true, dt:0.006})
 	sys.renderer = Renderer("#sitemap")
 	sys.graft(theUI)
 	
