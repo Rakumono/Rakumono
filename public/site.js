@@ -10,6 +10,9 @@
     //   for (var i=0; i<len; i++) args.push("arguments["+i+"]")
     //   eval("console.log("+args.join(",")+")")
     // }  
+    String.prototype.bytes = function() { 
+	return this.replace(/[^\x00-\xff]/gi, "--").length; 
+    }
     var theUI = JSON.parse($.ajax({
 	type: 'GET',
 	url: 'http://localhost:4567/nodes.json',
@@ -37,7 +40,7 @@
 	    init:function(pSystem){
 		sys = pSystem
 		sys.screen({size:{width:dom.width(), height:dom.height()},
-			    padding:[36,60,36,60]})
+			    padding:[1,1,1,1]})
 
 		$(window).resize(that.resize)
 		that.resize()
@@ -45,11 +48,11 @@
 
 	    },
 	    resize:function(){
-		canvas.width = $(window).width()
-		canvas.height = .75* $(window).height()
-		sys.screen({size:{width:canvas.width, height:canvas.height}})
-		_vignette = null
-		that.redraw()
+		// canvas.width = $(window).width()
+		// canvas.height = .75* $(window).height()
+		// sys.screen({size:{width:canvas.width, height:canvas.height}})
+		// _vignette = null
+		// that.redraw()
 	    },
 	    redraw:function(){
 		gfx.clear()
@@ -66,13 +69,31 @@
 			gfx.text(node.name, pt.x, pt.y+7, {color:"white", align:"center", font:"Arial", size:12})
 		    }else{
 			var labelw = 400
-			gfx.rect(pt.x-labelw/2, pt.y-8, labelw, 120, 40, {fill:"pink", alpha:node.data.alpha})
+			ctx.fillStyle = 'rgba(225,225,225,0.5)';
+			ctx.fillRect(pt.x-labelw/2, pt.y-8, labelw, 120)
 			var image = new Image();
 			image.src = node.data.src;
 			image.onload = function(){
 			    ctx.drawImage(image,pt.x-190,pt.y+4);
 			}
-			gfx.text(node.data.caption, pt.x-80, pt.y+9, {color:"red", align:"left", font:"Arial", size:12})
+			ctx.font = '13pt Monospace';
+			ctx.fillStyle = '#111';
+			var height = 19
+			var lineLength = 14
+			var tmpLine = node.data.caption
+			var lineNum = 0
+			while(tmpLine.length > 0){
+			    var testLine = tmpLine.substring(0,lineLength)
+			    var addLength = testLine.length*2-testLine.bytes()
+			    if(addLength){
+				lineLength += addLength/2
+			    }
+			    ctx.fillText(tmpLine.substring(0,lineLength),pt.x-80, pt.y+lineNum*height+9)
+			    tmpLine = tmpLine.substring(lineLength)
+			    lineNum += 1
+			    lineLength = 14
+			    addLength = 0
+			}
 		    }
 		})
 		that._drawVignette()
@@ -321,7 +342,7 @@
 			$(this).hide()
 			$(that).trigger({type:'mode', mode:'visible', dt:dt})
 		    })
-		    document.title = "arbor.js"
+		    document.title = "Rakumono"
 		    break
 		    
 		case 'introduction':
@@ -333,7 +354,7 @@
                     
 		    $('#docs').find(">div").hide()
 		    $('#docs').find('#'+_path).show()
-		    document.title = "arbor.js » " + _path
+		    document.title = "Rakumono" + _path
 		    break
 		}
 		
@@ -353,7 +374,7 @@
 
 
 	var sys = arbor.ParticleSystem()
-	sys.parameters({stiffness:900, repulsion:2000, gravity:true, dt:0.015})
+	sys.parameters({stiffness:900, repulsion:100, gravity:0, dt:0.006})
 	sys.renderer = Renderer("#sitemap")
 	sys.graft(theUI)
 	
