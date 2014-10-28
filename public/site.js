@@ -10,6 +10,16 @@
     //   for (var i=0; i<len; i++) args.push("arguments["+i+"]")
     //   eval("console.log("+args.join(",")+")")
     // }  
+    var theUI = JSON.parse($.ajax({
+	type: 'GET',
+	url: 'http://localhost:4567/nodes.json',
+	dataType: 'json',
+	async: false
+    }).responseText)
+    var menu = []
+    for(var e in theUI.edges){
+	menu.push(e)
+    }
     
     var Renderer = function(elt){
 	var dom = $(elt)
@@ -22,9 +32,7 @@
 	var selected = null,
         nearest = null,
         _mouseP = null;
-
-	var menu = ['SUIEI','code','docs','boushi']
-
+	
 	var that = {
 	    init:function(pSystem){
 		sys = pSystem
@@ -342,13 +350,7 @@
 	    demo:"#a7af00"
 	}
 
-	var theUI = JSON.parse(JSON.stringify($.ajax({
-	    type: 'GET',
-	    url: 'http://localhost:4567/nodes.json',
-	    dataType: 'application/json',
-	    async: false
-	}).responseText))
-	console.log(theUI)
+
 
 	var sys = arbor.ParticleSystem()
 	sys.parameters({stiffness:900, repulsion:2000, gravity:true, dt:0.015})
