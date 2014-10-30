@@ -1,12 +1,21 @@
 
-$header-color-base: rgba(200, 120, 120, 0.7);
+// global variables
 $background-color: rgb(220, 220, 220);
+
+//
+$header-color-base: rgba(200, 120, 120, 0.7);
 $header-fore-color: rgb(255,255, 255);
 $header-hover-color: rgba(230, 110, 110, 0.7);
 $header-nav-height: 50px;
+
+//
 $navigation-title-height: 50px;
 $navigation-title-padding-left: 30px;
 $navigation-box-height: 50px;
+
+
+$navigation-overlay-background-color: rgba(200, 200, 200, 0.8);
+
 .header {
   color: $header-fore-color;
   nav {
@@ -50,3 +59,55 @@ $navigation-box-height: 50px;
   }
 }
 
+
+.overlay-effects {
+  width:360px;
+  height:270px;
+  .img {
+    position:relative;
+    
+    width:100%;
+    img {
+      border: 0;
+    }
+  }
+  .img:hover{
+    .overlay {
+      opacity: 1;
+    }
+  }
+  .overlay {
+    display: block;
+    position:absolute;
+    height:100%;
+    width:100%;
+    z-index:20;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    opacity: 0;
+    background:$navigation-overlay-background-color;
+    a {
+      position: absolute;
+      display:block;
+      color: white;
+    //  background:black;
+      text-align:center;
+      line-height:270px;
+      vertical-align:middle;
+      bottom: 0px;
+      left:0px;
+      right:0px;
+      top:0px;
+      font-size:14px;
+      margin: 0 auto;
+    }
+  }
+    
+
+}
+
+.navbox {
+  background:black;
+}

@@ -24,3 +24,42 @@
   display: block; }
 #navigation-container .soccer {
   background: green; }
+
+.overlay-effects {
+  width: 360px;
+  height: 270px; }
+  .overlay-effects .img {
+    position: relative;
+    width: 100%; }
+    .overlay-effects .img img {
+      border: 0; }
+  .overlay-effects .img:hover .overlay {
+    opacity: 1; }
+  .overlay-effects .overlay {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    opacity: 0;
+    background: rgba(200, 200, 200, 0.8); }
+    .overlay-effects .overlay a {
+      position: absolute;
+      display: block;
+      color: white;
+      text-align: center;
+      line-height: 270px;
+      vertical-align: middle;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      font-size: 14px;
+      margin: 0 auto; }
+
+.navbox {
+  background: black; }
