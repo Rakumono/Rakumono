@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://gridster.net/demos/expandable-widgets.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Demo » Expandable widgets » gridster.js</title>
+  <link rel="stylesheet" type="text/css" href="./index_files/jquery.gridster.css">
+  <link rel="stylesheet" type="text/css" href="./index_files/demo.css">
+</head>
+
+<body>
+
+  <h1>Expandable widgets</h1>
+
+  
+
+
+  <div class="gridster">
+    <ul style="height: 440px; width: 550px; position: relative;">
+      <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" class="gs-w">0</li>
+      <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" class="gs-w">1</li>
+      <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" class="gs-w">2</li>
+      <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" class="gs-w">3</li>
+      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" class="gs-w">4</li>
+      <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" class="gs-w">5</li>
+      <li data-row="2" data-col="3" data-sizex="1" data-sizey="1" class="gs-w">6</li>
+      <li data-row="2" data-col="4" data-sizex="1" data-sizey="1" class="gs-w">7</li>
+      <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" class="gs-w">8</li>
+      <li data-row="3" data-col="2" data-sizex="1" data-sizey="1" class="gs-w">9</li>
+      <li data-row="3" data-col="3" data-sizex="1" data-sizey="1" class="gs-w">10</li>
+      <li data-row="3" data-col="4" data-sizex="1" data-sizey="1" class="gs-w">11</li>
+    </ul>
+  </div>
+
+    <script type="text/javascript" src="./index_files/jquery.js"></script>
+    <script src="./index_files/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+
+    <script type="text/javascript">
+      var gridster;
+
+      $(function(){
+
+        gridster = $(".gridster ul").gridster({
+          widget_base_dimensions: [100, 100],
+          widget_margins: [5, 5],
+          helper: 'clone'
+        }).data('gridster');
+
+
+        // resize widgets on hover
+        gridster.$el
+          .on('mouseenter', '> li', function() {
+              gridster.resize_widget($(this), 3, 3);
+          })
+          .on('mouseleave', '> li', function() {
+              gridster.resize_widget($(this), 1, 1);
+          });
+
+      });
+    </script>
+
+
+</body></html>

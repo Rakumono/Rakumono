@@ -1,0 +1,17 @@
+*
+
+** TODO Index page
+** TODO Item Page
+** TODO Item Parameters
+*** Keyword
+*** Gendre
+*** Item
+**** Price
+**** URL
+**** Image URL
+**** Title
+**** Rank
+**** Sales
+**** Tag
+**** Activity
+

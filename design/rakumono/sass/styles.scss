@@ -16,6 +16,10 @@ $navigation-box-height: 50px;
 
 $navigation-overlay-background-color: rgba(200, 200, 200, 0.8);
 
+ul {
+  list-style-type: none;
+}
+
 .header {
   color: $header-fore-color;
   nav {

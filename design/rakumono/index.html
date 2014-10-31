@@ -13,6 +13,13 @@
     
     <link href="assets/styles/styles.css" rel="stylesheet" type="text/css" />
 
+    <link href="assets/vendors/gridster/jquery.gridster.css" rel="stylesheet" type="text/css">
+
+    <link href="assets/styles/gridster-controller.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="assets/javascripts/jquery-1.11.1.min.js" ></script>
+    <script type="text/javascript" src="assets/vendors/gridster/jquery.gridster.js" ></script>
+    
     <script type="text/javascript" src="assets/vendors/bootstrap/js/bootstrap.min.js" ></script>
   </head>
   <body>
@@ -35,6 +42,50 @@
 	  </div>
 	</nav>
       </header>
+      
+      <section id="grid-container">
+	<div class="container">
+	  <div class="gridster">
+	    <ul style="height:400px; width: 550px; position:relative;">
+	      
+	      <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" class="gs-w">
+		<div class="grid-box">
+		  <div class="grid-sm">
+		    <img src="assets/images/soccer.jpg" class="grid-avater"/>
+		  </div>
+		  <div class="grid-lg">
+		    <h1>Soccer</h1>
+		  </div>
+		  
+		</div>
+		
+	      </li>
+	      <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" class="gs-w">
+		
+	      </li>
+	      <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" class="gs-w">
+		
+	      </li>
+	      <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" class="gs-w">
+	      </li>
+	      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" class="gs-w">
+		
+	      </li>
+	      <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" class="gs-w">
+		
+	      </li>
+	      <li data-row="2" data-col="3" data-sizex="1" data-sizey="1" class="gs-w">
+		
+	      </li>
+	      
+	      <li data-row="2" data-col="4" data-sizex="1" data-sizey="1" class="gs-w">
+		
+	      </li>
+
+	    </ul>
+	  </div>
+	</div>
+      </section>
 
       <section id="search-container">
 	<div class="container">
@@ -166,6 +217,25 @@
 	  </div>
 	</div>
       </section>
+      <script type="text/javascript">
+       var gridster;
+       $(function(){
+	   gridster = $(".gridster ul").gridster({
+	       widget_base_dimensions: [100, 100],
+	       widget_margins: [5, 5],
+	       helper: 'clone'
+	   }).data('gridster');
+	   gridster.$el.on('mouseenter', '> li', function(){
+	       gridster.resize_widget($(this), 3, 3);
+	       $(this).find(".grid-sm").css('display', 'none');
+	       $(this).find(".grid-lg").css('display', 'block');
+	   }).on('mouseleave', '> li', function(){
+	       gridster.resize_widget($(this), 1, 1);
+	       $(this).find(".grid-lg").css('display', 'none');
+	       $(this).find(".grid-sm").css('display', 'block');
+	   });
+       });
+      </script>
 <!--  
       <section id="trend-container" class="page-section">
 	<div class="container">
