@@ -6,7 +6,8 @@ get '/' do
   erb :index
 end
 
-get '/suiei' do 
+get '/suiei.json' do 
+  content_type :json
   jstr = File.read 'data/suiei.json'
   json = JSON.parse jstr
 
