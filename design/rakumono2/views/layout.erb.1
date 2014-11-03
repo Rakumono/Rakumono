@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Hiro Gen" >
+    <link href="assets/styles/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/print.css" media="print" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    
+    <link href="assets/vendors/bootstrap/css/bootstrap.min.css"  rel="stylesheet" type="text/css" />
+    <link href="assets/vendors/bootstrap/css/bootstrap-theme.min.css"  rel="stylesheet" type="text/css" />
+    
+    <link href="assets/styles/styles.css" rel="stylesheet" type="text/css" />
+
+    <link href="assets/vendors/gridster/jquery.gridster.css" rel="stylesheet" type="text/css">
+
+    <link href="assets/styles/gridster-controller.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="assets/javascripts/jquery-1.11.1.min.js" ></script>
+    <script type="text/javascript" src="assets/vendors/gridster/jquery.gridster.js" ></script>
+    
+    <script type="text/javascript" src="assets/vendors/bootstrap/js/bootstrap.min.js" ></script>
+  </head>
+  <body>
+
+    <div id="page">
+      <header class="header">
+	<nav class="nav navbar-fixed-top">
+	  <div class="container">
+	    <a class="navbar-brand" href="#">楽&nbsp;モ&nbsp;ノ&nbsp;</a>
+	    <div class="navbar navbar-collapse collapse">
+	      <ul class="nav navbar-nav navbar-right">
+		<li><a href="#search-container">Search</a></li>
+		<li><a href="#navigation-container">Navigation</a></li>
+<!-- 
+		<li><a href="#trend-container">Trend</a></li>
+		<li><a href="#app-container">App</a></li>
+-->
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+      </header>
+      <%=@yeild %>
+    </div>
+  </body>
+</html>
