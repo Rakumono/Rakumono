@@ -1,6 +1,6 @@
 
 // global variables
-$background-color: rgb(220, 220, 220);
+$background-color: whitex;
 
 //
 $header-color-base: rgba(200, 120, 120, 0.7);
@@ -15,6 +15,21 @@ $navigation-box-height: 50px;
 
 
 $navigation-overlay-background-color: rgba(200, 200, 200, 0.8);
+
+
+
+$grid-background-color: #AAAAAA;
+$grid-avater-h:200px;
+$grid-avater-w:200px;
+
+
+$mono-sm-h: 150px;
+$mono-sm-w: 150px;
+
+$mono-lg-h: 300px;
+$mono-lg-w: 300px;
+
+$mono-price-color: red;
 
 ul {
   list-style-type: none;
@@ -115,3 +130,60 @@ ul {
 .navbox {
   background:black;
 }
+
+
+
+.gridster{
+  li {
+    background: $grid-background-color;
+  }
+  
+  .grid-sm{
+    display:block;
+  }
+  .grid-lg{
+    display:none;
+    
+  }
+}
+.subject-gridster {
+  .grid-avater {
+    width:$grid-avater-w;
+    height:$grid-avater-h;
+  }
+}
+
+.index-gridster {
+}
+
+
+.mono-box {
+  width:150px;
+  overflow:hidden;
+  .mono-inner-box {
+    width: 300px;
+    overflow:hidden;
+    display:block;
+  }
+    
+  .mono-inner-small {
+    width: $mono-sm-w;
+    height: $mono-sm-h;
+    float:left;
+    img {
+      width: $mono-sm-w;
+      height: $mono-sm-h;
+    }
+  }
+  
+  .mono-inner-right {
+    width: $mono-lg-w - $mono-sm-w;
+    height: $mono-lg-h;
+    float:right;
+ //   background:#EEEEEE;
+  }
+  .mono-price {
+    color: $mono-price-color;
+  }
+}
+

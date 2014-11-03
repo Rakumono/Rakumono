@@ -1,3 +1,6 @@
+.clear {
+  clear: both; }
+
 ul {
   list-style-type: none; }
 
@@ -12,7 +15,7 @@ ul {
     backround: rgba(230, 110, 110, 0.7); }
 
 #page {
-  background: whitex; }
+  background: #EEE; }
 
 #page > section {
   padding-top: 50px; }
@@ -29,10 +32,10 @@ ul {
   background: green; }
 
 .overlay-effects {
-  width: 360px;
-  height: 270px; }
+  overflow: hidden; }
   .overlay-effects .img {
     position: relative;
+    height: 100%;
     width: 100%; }
     .overlay-effects .img img {
       border: 0; }
@@ -46,41 +49,64 @@ ul {
     z-index: 20;
     left: 0px;
     top: 0px;
-    bottom: 0px;
-    right: 0px;
     opacity: 0;
-    background: rgba(200, 200, 200, 0.8); }
+    background: rgba(180, 180, 180, 0.8); }
     .overlay-effects .overlay a {
-      position: absolute;
       display: block;
       color: white;
       text-align: center;
-      line-height: 270px;
+      margin-top: 100px;
       vertical-align: middle;
-      bottom: 0px;
-      left: 0px;
-      right: 0px;
-      top: 0px;
-      font-size: 14px;
-      margin: 0 auto; }
+      font-size: 14px; }
 
-.navbox {
-  background: black; }
+.mono-cate-container {
+  background: #FFF;
+  padding: 0px 0px 100px 0px; }
 
-.gridster li {
-  background: #AAAAAA; }
-.gridster .grid-sm {
-  display: block; }
-.gridster .grid-lg {
-  display: none; }
+.mono-box-active {
+  background: #DDD; }
 
-.subject-gridster .grid-avater {
-  width: 200px;
-  height: 200px; }
+.mono-cate-box {
+  float: left;
+  border: 1px solid transparent;
+  padding: 10px 30px 10px 30px; }
+  .mono-cate-box .img {
+    width: 200px;
+    height: 200px;
+    overflow: hidden; }
+
+.mono-cate-wrapper {
+  display: none;
+  clear: both;
+  background: #DDD;
+  padding: 20px 40px; }
 
 .mono-box {
-  width: 150px;
-  overflow: hidden; }
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  width: 200px;
+  overflow: hidden;
+  background: #FFF;
+  border: 1px solid #AAA;
+  padding: 2px; }
+  .mono-box .mono-avater img {
+    width: 200px;
+    height: 200px; }
+  .mono-box .mono-info ul {
+    padding: 5px; }
+  .mono-box .mono-info ul li {
+    padding: 5px 0px; }
+  .mono-box .mono-price {
+    color: red;
+    font-size: 14px; }
+  .mono-box .mono-point {
+    color: red;
+    font-size: 14px; }
+  .mono-box .mono-rank {
+    border-top: 1px dashed #AAA; }
+  .mono-box .mono-rank span {
+    font-size: 11px; }
   .mono-box .mono-inner-box {
     width: 300px;
     overflow: hidden;
@@ -96,5 +122,14 @@ ul {
     width: 150px;
     height: 300px;
     float: right; }
-  .mono-box .mono-price {
-    color: red; }
+
+.gridster li {
+  background: #AAA; }
+.gridster .grid-sm {
+  display: block; }
+.gridster .grid-lg {
+  display: none; }
+
+.subject-gridster .grid-avater {
+  width: 200px;
+  height: 200px; }

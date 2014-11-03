@@ -1,0 +1,267 @@
+
+///////////////////////////////////////////
+/// Common Styles
+///////////////////////////////////////////
+
+// global variables
+$page-bg: #EEE;
+
+//
+$header-color-base: rgba(200, 120, 120, 0.7);
+$header-fore-color: rgb(255,255, 255);
+$header-hover-color: rgba(230, 110, 110, 0.7);
+$header-nav-height: 50px;
+
+//
+$navigation-title-height: 50px;
+$navigation-title-padding-left: 30px;
+$navigation-box-height: 50px;
+$mono-overlay-bg: rgba(180, 180, 180, 0.8);
+
+.clear {
+  clear:both;
+}
+ul {
+  list-style-type: none;
+}
+.header {
+  color: $header-fore-color;
+  nav {
+    height: $header-nav-height;
+    background: $header-color-base; 
+  }
+  a {
+    color: $header-fore-color;
+  }
+  :hover {
+    backround: $header-hover-color;
+  }
+}
+
+#page {
+  background: $page-bg;
+}
+
+#page>section {
+  padding-top:$header-nav-height;	      
+}
+
+#navigation-container{
+  .navigation-title {
+    height: $navigation-title-height;
+    line-height: $navigation-title-height;
+    vertical-align: middle;
+    padding-left: $navigation-title-padding-left;
+  //  background: white;
+    
+  }
+  .clothes-title {
+    
+  }
+
+  .navigation-box {
+    height: $navigation-box-height;
+    display:block;
+    
+  }
+  .soccer {
+    background: green;
+  }
+}
+
+
+
+.overlay-effects {
+  
+  overflow:hidden;
+  .img {
+    position:relative;
+    height:100%;
+    width:100%;
+    img {
+      border: 0;
+    }
+  }
+  .img:hover{
+    .overlay {
+      opacity: 1;
+    }
+  }
+  .overlay {
+    display: block;
+    position:absolute;
+    height:100%;
+    width:100%;
+    z-index:20;
+    left:0px;
+    top:0px;
+    opacity: 0;
+    background:$mono-overlay-bg;
+    a {
+      //position: absolute;
+      display:block;
+      color: white;
+  //    background:black;
+      text-align:center;
+      margin-top:100px;
+      vertical-align:middle;
+      //left:0px;
+      //top:0px;
+      font-size:14px;
+     // margin: 0 auto;
+    }
+  }
+}
+
+///////////////////////////////////
+//// mono
+///////////////////////////////////
+$mono-cate-icon-w:200px;
+$mono-cate-icon-h:200px;
+$mono-cate-wrapper-w:100%;
+$mono-cate-wrapper-bg:#DDD;
+$mono-box-bg:#FFF;
+
+$mono-sm-h: 150px;
+$mono-sm-w: 150px;
+
+$mono-lg-h: 300px;
+$mono-lg-w: 300px;
+
+$mono-price-color: red;
+
+.mono-cate-container {
+  background:#FFF;
+  padding:0px 0px 100px 0px;
+}
+.mono-box-active {
+  background:$mono-cate-wrapper-bg;  
+}
+
+.mono-cate-row {
+ // padding:0px 40px;
+ // padding:0px;
+
+}
+.mono-cate-box {
+  float:left;
+ // margin:10px 20px;
+  //width:$mono-cate-icon-w;
+  //height:$mono-cate-icon-h;
+  border: 1px solid transparent;
+  padding:10px 30px 10px 30px;
+  
+  .img {
+    width:$mono-cate-icon-w;
+    height:$mono-cate-icon-h;
+    overflow:hidden;
+  }
+}
+
+
+.mono-cate-wrapper {
+  display:none;
+  clear:both;
+  // width:100%;
+   
+   background:$mono-cate-wrapper-bg;
+   padding: 20px 40px;
+}
+
+$mono-box-avater-w:200px;
+$mono-box-avater-h:200px;
+$mono-box-w: 200px;
+.mono-box {
+  float:left;
+  margin-right:15px;
+  margin-bottom:30px;
+  width:$mono-box-w;
+  overflow:hidden;
+  
+  background:$mono-box-bg;
+  border:1px solid #AAA;
+  padding: 2px;
+  
+  .mono-avater {
+    
+    img {
+      width:$mono-box-avater-w;
+      height:$mono-box-avater-h;
+    }
+  }
+  .mono-info {
+    ul {
+      padding: 5px;
+    }
+    ul li {
+      padding:5px 0px;
+    }
+  }
+  .mono-price {
+    color: $mono-price-color;
+    font-size:14px;
+  }
+  .mono-point {
+    color: $mono-price-color;
+    font-size:14px;
+  }
+  .mono-rank {
+    border-top: 1px dashed #AAA;
+  }
+  .mono-rank span{
+    font-size:11px;
+  }
+
+  .mono-inner-box {
+    width: 300px;
+    overflow:hidden;
+    display:block;
+  }
+  
+  .mono-inner-small {
+    width: $mono-sm-w;
+    height: $mono-sm-h;
+    float:left;
+    img {
+      width: $mono-sm-w;
+      height: $mono-sm-h;
+    }
+  }
+  
+  .mono-inner-right {
+    width: $mono-lg-w - $mono-sm-w;
+    height: $mono-lg-h;
+    float:right;
+ //   background:#EEEEEE;
+  }
+  
+}
+
+
+/////////////////////////////////
+/// Grid
+/////////////////////////////////
+$grid-background-color: #AAA;
+$grid-avater-h:200px;
+$grid-avater-w:200px;
+
+.gridster{
+  li {
+    background: $grid-background-color;
+  }
+  
+  .grid-sm{
+    display:block;
+  }
+  .grid-lg{
+    display:none;
+    
+  }
+}
+.subject-gridster {
+  .grid-avater {
+    width:$grid-avater-w;
+    height:$grid-avater-h;
+  }
+}
+
