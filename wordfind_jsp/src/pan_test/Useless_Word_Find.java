@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 public class Useless_Word_Find {
 	public static void main(String[] args) throws IOException {
 		File file = new File("D:/testData_h.txt");
