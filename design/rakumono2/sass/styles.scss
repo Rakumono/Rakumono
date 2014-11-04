@@ -69,7 +69,15 @@ ul {
   }
 }
 
-
+#cart-list {
+  position: absolute;
+  z-index:10000;
+  width:100px;
+  height:100px;
+  right:100px;
+  top:200px;
+  background: black;
+}
 
 .overlay-effects {
   
@@ -181,12 +189,42 @@ $mono-box-w: 200px;
   background:$mono-box-bg;
   border:1px solid #AAA;
   padding: 2px;
-  
+  $mono-operation-icon-size:32px;
+  $mono-operation-left:20px;
+  $mono-operation-top:20px;
+  $mono-add-to-list-bg:url(../images/plus_gray.png);
+  $mono-add-to-list-bg-hover:url(../images/plus.png);
   .mono-avater {
-    
-    img {
+    position: relative;
+    .mono-avater-img {
       width:$mono-box-avater-w;
       height:$mono-box-avater-h;
+    }
+    &:hover{
+      .mono-operation {
+        display:block;
+      }
+    }
+    .mono-operation {
+      position: absolute;
+      left: $mono-operation-left;
+      top:$mono-operation-top;
+      display:none;
+      .mono-add-to-list {
+        background: $mono-add-to-list-bg;
+      }
+      .mono-add-to-list:hover {
+        background: $mono-add-to-list-bg-hover;
+      }
+      a {
+        display:block;
+        width:$mono-operation-icon-size;
+        height:$mono-operation-icon-size;
+        
+      }
+      a:hover {
+      cursor:pointer;
+      }
     }
   }
   .mono-info {

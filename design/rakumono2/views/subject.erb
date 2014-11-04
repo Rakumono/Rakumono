@@ -71,6 +71,7 @@
       <div class="mono-avater">
 	
 	<img src="images/swimhat.jpg" />
+	<div class="mono-operation" ><a class="mono-add-to-list"></a></div>
       </div>
       <div class="mono-info">
 	<ul>
@@ -84,8 +85,27 @@
     </div>
     <div class="mono-box">
       <div class="mono-avater">
+	<img src="images/swimhat.jpg" />
+	<div class="mono-operation" ><a class="mono-add-to-list"></a></div>
+      </div>
+      <div class="mono-info">
+	<ul>
+	  <li class="mono-title">アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】</li>
+	  <li><span class="mono-price">$1000</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">Points:10</span></li>
+	  <li class="mono-rank"><span>4.5 Rank</span>&nbsp;&nbsp;<span>1432 Comments</span></li>
+	  <li><span class="badge">cheap</span>&nbsp;<span class="badge">nice</span>&nbsp;<span class="badge">speed</span></li>
+	</ul>
+      </div>
+      
+    </div>
+
+
+    <div class="mono-box">
+      <div class="mono-avater">
 	
 	<img src="images/swimhat.jpg" />
+	<div class="mono-operation" ><a class="mono-add-to-list"></a></div>
+
       </div>
       <div class="mono-info">
 	<ul>
@@ -101,21 +121,7 @@
       <div class="mono-avater">
 	
 	<img src="images/swimhat.jpg" />
-      </div>
-      <div class="mono-info">
-	<ul>
-	  <li class="mono-title">アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】</li>
-	  <li class="mono-price">$1000</li>
-	  <li class="mono-rank">
-	    <span>4.5 Rank</span>&nbsp;&nbsp;<span>1432 Brought</span></li>
-	  <li><span class="badge">cheap</span>&nbsp;<span class="badge">nice</span>&nbsp;<span class="badge">speed</span></li>
-	</ul>
-      </div>
-    </div>
-    <div class="mono-box">
-      <div class="mono-avater">
-	
-	<img src="images/swimhat.jpg" />
+	<div class="mono-operation" ><a class="mono-add-to-list"></a></div>
       </div>
       <div class="mono-info">
 	<ul>
@@ -131,6 +137,8 @@
       <div class="mono-avater">
 	
 	<img src="images/swimhat.jpg" />
+	<div class="mono-operation" ><a class="mono-add-to-list"></a></div>
+
       </div>
       <div class="mono-info">
 	<ul>
@@ -143,25 +151,17 @@
       </div>
     </div>
   
-    <div class="mono-box">
-      <div class="mono-avater">
-	
-	<img src="images/swimhat.jpg" />
-      </div>
-      <div class="mono-info">
-	<ul>
-	  <li class="mono-title">アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】</li>
-	  <li><span class="mono-price">$1000</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">Points:10</span></li>
-	  <li class="mono-rank"><span>4.5 Rank</span>&nbsp;&nbsp;<span>1432 Comments</span></li>
-	  <li><span class="badge">cheap</span>&nbsp;<span class="badge">nice</span>&nbsp;<span class="badge">speed</span></li>
-	</ul>
-      </div>
-      
-    </div>
+
     <div class="clear"></div>
   </div>
 
 </div>
+
+
+<div class="gridster draggable" id="cart-list">
+
+</div>
+
 
 
 <script type="text/javascript">
@@ -188,4 +188,28 @@ $(function(){
     });
 });
 
+
+$(document).ready(function(){
+    var dragging = null;
+    function drag() {
+	if (dragging) {
+	    $(document.body).on("mousemove", function(e){
+		dragging.offset({
+		    top: e.pageY,
+		    left: e.pageX
+		});
+	    }).on("mouseup", function(e){
+		dragging = null;
+	    });
+	}
+    }
+    $("#cart-list").on("mousedown", function(e) {
+	dragging = $(e.target);
+	drag();
+    }).on("mouseup", function(e){
+//	dragging = null;
+    }).on("mouseleave", function(e){
+//	dragging = null;
+    });
+});
 </script>

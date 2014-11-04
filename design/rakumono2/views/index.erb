@@ -181,7 +181,7 @@
 	       widget_margins: [5, 5],
 	       helper: 'clone'
 	   }).data('gridster');
-	   gridster.$el.on('mouseenter', '> li', function(){
+	   gridster.$el.on('click', '> li', function(){
 	       gridster.resize_widget($(this), 3, 3);
 	       $(this).find(".grid-sm").css('display', 'none');
 	       $(this).find(".grid-lg").css('display', 'block');

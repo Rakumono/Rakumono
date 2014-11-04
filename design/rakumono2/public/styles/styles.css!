@@ -36,8 +36,6 @@ ul {
   z-index: 10000;
   width: 100px;
   height: 100px;
-  right: 100px;
-  top: 200px;
   background: black; }
 
 .overlay-effects {
@@ -104,21 +102,12 @@ ul {
     .mono-box .mono-avater .mono-avater-img {
       width: 200px;
       height: 200px; }
-    .mono-box .mono-avater:hover .mono-operation {
-      display: block; }
     .mono-box .mono-avater .mono-operation {
       position: absolute;
       left: 20px;
       top: 20px;
-      display: none; }
-      .mono-box .mono-avater .mono-operation .mono-add-to-list {
-        background: url(../images/plus_gray.png); }
-      .mono-box .mono-avater .mono-operation .mono-add-to-list:hover {
-        background: url(../images/plus.png); }
-      .mono-box .mono-avater .mono-operation a {
-        display: block;
-        width: 32px;
-        height: 32px; }
+      width: 32px;
+      height: 32px; }
       .mono-box .mono-avater .mono-operation a:hover {
         cursor: pointer; }
   .mono-box .mono-info ul {
