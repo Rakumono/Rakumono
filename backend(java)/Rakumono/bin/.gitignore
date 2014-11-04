@@ -1,4 +1,6 @@
-/tokenizer/
 /test/
-/pan_test/
 /api/
+/decode/
+/util/
+/service/
+/encode/
