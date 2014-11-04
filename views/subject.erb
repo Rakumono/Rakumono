@@ -2,89 +2,32 @@
 <br />
 <br />
 
-
 <div class="container mono-cate-container">
-  <div class="mono-cate-row">
-    <div class="overlay-effects effects mono-cate-box">
+  <% monoindex = 0 %>
+  <% data.each do |genre, items| %>
+    <% genre %>
+    <% if monoindex%4 == 0 %>
+      <div class="mono-cate-row">
+    <% end %>
+    <div class="clearfix overlay-effects effects mono-cate-box" id="<%= genre %>">
       <div class="img">
-	<img src="images/swimhat.jpg" />
+	<img src="<%= items[0]["imageUrl"] %>" />
 	<div class="overlay">
-	  <a href="#"><h3>swim hat</h3></a>
+	  <a href="#"><h3><%= genre %></h3></a>
 	  <a class="close-overlay hidden">x</a>
 	</div>
       </div>	
     </div>
-    <div class="overlay-effects effects mono-cate-box">
-      <div class="img">
-	<img src="images/hat2.jpg" />
-	<div class="overlay">
-	  <a href="#"><h3>Swim Hat</h3></a>
-	  <a class="close-overlay hidden">x</a>
-	</div>
+    <% if monoindex%4 == 3 %>
       </div>
-    </div>
-    <div class="clearfix overlay-effects effects mono-cate-box">
-      <div class="img">
-	<img src="images/swimhat.jpg" />
-	<div class="overlay">
-	  <a href="#"><h3>Swim Hat</h3></a>
-	  <a class="close-overlay hidden">x</a>
-	</div>
-      </div>
-    </div>
-    <div class="clearfix overlay-effects effects mono-cate-box">
-      <div class="img">
-	<img src="images/swimhat.jpg" />
-	<div class="overlay">
-	  <a href="#"><h3>Swim Hat</h3></a>
-	  <a class="close-overlay hidden">x</a>
-	</div>
-      </div>
-    </div>
+    <% end %>
+    <% monoindex += 1 %>
+  <% end %>
     
-  </div>
-  <div class="mono-cate-row">
-    <div class="clearfix overlay-effects effects mono-cate-box">
-      <div class="img">
-	<img src="images/swimhat.jpg" />
-	<div class="overlay">
-	  <a href="#"><h3>Swim Hat</h3></a>
-	  <a class="close-overlay hidden">x</a>
-	</div>
-      </div>
-    </div>
-    <div class="clearfix overlay-effects effects mono-cate-box">
-      <div class="img">
-	<img src="images/swimhat.jpg" />
-	<div class="overlay">
-	  <a href="#"><h3>Swim Hat</h3></a>
-	  <a class="close-overlay hidden">x</a>
-	</div>
-      </div>
-    </div>
-  </div>
-
-
-
   <div class="mono-cate-wrapper">
+    
     <div class="mono-box">
       <div class="mono-avater">
-	
-	<img src="images/swimhat.jpg" />
-      </div>
-      <div class="mono-info">
-	<ul>
-	  <li class="mono-title">アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】</li>
-	  <li class="mono-price">$1000</li>
-	  <li class="mono-rank">
-	    <span>4.5 Rank</span>&nbsp;&nbsp;<span>1432 Brought</span></li>
-	  <li><span class="badge">cheap</span>&nbsp;<span class="badge">nice</span>&nbsp;<span class="badge">speed</span></li>
-	</ul>
-      </div>
-    </div>
-    <div class="mono-box">
-      <div class="mono-avater">
-	
 	<img src="images/swimhat.jpg" />
       </div>
       <div class="mono-info">
@@ -99,7 +42,6 @@
     </div>
     <div class="mono-box">
       <div class="mono-avater">
-	
 	<img src="images/swimhat.jpg" />
       </div>
       <div class="mono-info">
@@ -114,7 +56,6 @@
     </div>
     <div class="mono-box">
       <div class="mono-avater">
-	
 	<img src="images/swimhat.jpg" />
       </div>
       <div class="mono-info">
@@ -145,7 +86,6 @@
   
     <div class="mono-box">
       <div class="mono-avater">
-	
 	<img src="images/swimhat.jpg" />
       </div>
       <div class="mono-info">
@@ -156,7 +96,6 @@
 	  <li><span class="badge">cheap</span>&nbsp;<span class="badge">nice</span>&nbsp;<span class="badge">speed</span></li>
 	</ul>
       </div>
-      
     </div>
     <div class="clear"></div>
   </div>
@@ -164,14 +103,13 @@
 </div>
 
 
-<script type="text/javascript">
-
+    <script type="text/javascript">
+    var data = <%= data.to_json %>;
 var current_cate = null;
 $(function(){
     $(".mono-cate-box").click(function(){
-	
 	if ($(this).is( current_cate)) {
-	   // alert("SB");
+	    // alert("SB");
 	    $(".mono-cate-wrapper").hide();
 	    current_cate.removeClass('mono-box-active');
 	    current_cate = null;
@@ -182,6 +120,8 @@ $(function(){
 	    $(".mono-cate-wrapper").hide();
 	    current_cate = $(this);
 	    current_cate.addClass('mono-box-active');
+	    items = data[current_cate.attr('id')]
+	    console.log(items)
 	    current_cate.parent().after($(".mono-cate-wrapper"));
 	    $(".mono-cate-wrapper").fadeIn('slow');
 	}
