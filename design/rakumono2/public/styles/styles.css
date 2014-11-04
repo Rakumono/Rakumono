@@ -38,7 +38,8 @@ ul {
   height: 100px;
   right: 100px;
   top: 200px;
-  background: black; }
+  background: #EFF;
+  border: 1px solid #999; }
 
 .overlay-effects {
   overflow: hidden; }
