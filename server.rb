@@ -13,7 +13,7 @@ end
 
 get '/:name' do
   def read_json subject
-    jstr = File.read "data/#{subject}.json"
+    jstr = File.read "#{APPROOT}/data/#{subject}.json"
     json = JSON.parse jstr
 
     data = {}
@@ -28,7 +28,7 @@ get '/:name' do
     end
     data
   end
-  if (File.exists? "data/#{params[:name]}.json")
+  if (File.exists? "#{APPROOT}/data/#{params[:name]}.json")
     data = read_json params[:name] 
   else
     halt(429,(erb :running, :layout => false, :locals => {:keyword => params[:name]}))
