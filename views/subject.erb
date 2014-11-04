@@ -1,6 +1,3 @@
-<br />
-<br />
-<br />
 
 <div class="container mono-cate-container">
   
@@ -112,25 +109,28 @@ var template = '<div class="mono-box"> <div class="mono-avater"><img src="{image
 //	 resize.enabled: true
      }).data('gridster');
 
+     function select_cate(catebox) {
+	 if (catebox == null) {
+	     return ;
+	 }
+	 if (current_cate != null){
+	     current_cate.removeClass('mono-box-active');
+	 }
+	 
+	 $(".mono-cate-wrapper").hide();
+	 current_cate = catebox;
+	 render($(".mono-cate-wrapper"), catebox.attr("id"), catebox.css("background-color"));
+	 current_cate.addClass('mono-box-active');
+	 items = data[current_cate.attr('id')]
+	 current_cate.parent().after($(".mono-cate-wrapper"));
+	 $(".mono-cate-wrapper").fadeIn('slow');
+     }
+    // 
      $(".mono-cate-box").click(function(){
 	 if ($(this).is( current_cate)) {
 	     
-	 //    $(".mono-cate-wrapper").hide();
-	//     current_cate.removeClass('mono-box-active');
-	//     current_cate = null;
 	 } else {
-	     if (current_cate != null){
-		 current_cate.removeClass('mono-box-active');
-	     }
-	     
-	     $(".mono-cate-wrapper").hide();
-	     current_cate = $(this);
-	     render($(".mono-cate-wrapper"), $(this).attr("id"), $(this).css("background-color"));
-	     current_cate.addClass('mono-box-active');
-	     items = data[current_cate.attr('id')]
-	     console.log(items)
-	     current_cate.parent().after($(".mono-cate-wrapper"));
-	     $(".mono-cate-wrapper").fadeIn('slow');
+	     select_cate($(this));
 	 }
      });
 
@@ -147,6 +147,7 @@ var template = '<div class="mono-box"> <div class="mono-avater"><img src="{image
      $(".mono-cate-box").each(function (index){
 	 $(this).css("background-color", colors[index]);
      });
+     select_cate($(".mono-cate-box").eq(0));
  });
 
 

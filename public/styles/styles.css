@@ -15,10 +15,8 @@ ul {
     backround: rgba(230, 110, 110, 0.7); }
 
 #page {
-  background: #EEE; }
-
-#page > section {
-  padding-top: 50px; }
+  background: #EEE;
+  padding: 0; }
 
 .search-container {
   background: white; }
@@ -190,5 +188,3 @@ footer {
 .subject-gridster .grid-avater {
   width: 200px;
   height: 200px; }
-
-/*# sourceMappingURL=styles.css.map */
