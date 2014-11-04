@@ -7,6 +7,10 @@ get '/' do
   erb :index
 end
 
+post '/' do
+  redirect "/#{params[:keyword]}"
+end
+
 get '/:name' do
   def read_json subject
     jstr = File.read "data/#{subject}.json"
@@ -17,13 +21,18 @@ get '/:name' do
       items = []
       genre['items'].each do |item|
         imageUrl = item['mediumImageUrls'][0]['imageUrl']
-        items << item.delete_if {|k,v| ['affiliateRate', 'affiliateUrl', 'asurakuArea', 'asurakuClosingTime', 'asurakuFlag', 'availability', 'catchcopy', 'creditCardFlag', 'imageFlag', 'itemCode', 'shopUrl', 'endTime', 'genreId', 'giftFlag', 'itemCaption', 'pointRateEndTime', 'pointRateStartTime', 'postageFlag', 'shipOverseasArea', 'shipOverseasFlag', 'shopAffiliateUrl', 'shopCode', 'shopName', 'shopOfTheYearFlag','smallImageUrls', 'startTime','taxFlag','mediumImageUrls'].include? k}.merge({"imageUrl" => imageUrl.gsub("128x128","200x200")})
+        itemName = item['itemName'][0..35] + "..."
+        items << item.delete_if {|k,v| ['affiliateRate', 'affiliateUrl', 'asurakuArea', 'asurakuClosingTime', 'asurakuFlag', 'availability', 'catchcopy', 'creditCardFlag', 'imageFlag', 'itemCode', 'shopUrl', 'endTime', 'genreId', 'giftFlag', 'itemCaption', 'pointRateEndTime', 'pointRateStartTime', 'postageFlag', 'shipOverseasArea', 'shipOverseasFlag', 'shopAffiliateUrl', 'shopCode', 'shopName', 'shopOfTheYearFlag','smallImageUrls', 'startTime','taxFlag','mediumImageUrls'].include? k}.merge({"imageUrl" => imageUrl.gsub("128x128","300x300")}).update({"itemName" => itemName})
       end
       data.merge!({genre['genreName'] => items})
     end
     data
   end
-  data = read_json params[:name]
+  if (File.exists? "data/#{params[:name]}.json")
+    data = read_json params[:name] 
+  else
+    halt(429,(erb :running, :layout => false))
+  end
   erb :subject, :locals => {:data => data}
 end
 
