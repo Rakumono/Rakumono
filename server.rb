@@ -31,7 +31,7 @@ get '/:name' do
   if (File.exists? "data/#{params[:name]}.json")
     data = read_json params[:name] 
   else
-    halt(429,(erb :running, :layout => false))
+    halt(429,(erb :running, :layout => false, :locals => {:keyword => params[:name]}))
   end
   erb :subject, :locals => {:data => data}
 end
