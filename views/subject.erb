@@ -27,9 +27,7 @@
   <div class="mono-cate-wrapper">
     
     <div class="mono-box">
-      <div class="mono-avater">
-<<<<<<< HEAD:design/rakumono2/views/subject.erb
-	
+      <div class="mono-avater">	
 	<img src="images/swimhat.jpg" />
 	<div class="mono-operation" ><a class="mono-add-to-list"></a></div>
       </div>
@@ -45,8 +43,7 @@
     </div>
     <div class="mono-box">
       <div class="mono-avater">
-=======
->>>>>>> 97552446595dd21250bca44b1b8e0edfe17ef355:views/subject.erb
+
 	<img src="images/swimhat.jpg" />
 	<div class="mono-operation" ><a class="mono-add-to-list"></a></div>
       </div>
@@ -111,9 +108,6 @@
       </div>
     </div>
   
-<<<<<<< HEAD:design/rakumono2/views/subject.erb
-
-=======
     <div class="mono-box">
       <div class="mono-avater">
 	<img src="images/swimhat.jpg" />
@@ -127,14 +121,13 @@
 	</ul>
       </div>
     </div>
->>>>>>> 97552446595dd21250bca44b1b8e0edfe17ef355:views/subject.erb
+
     <div class="clear"></div>
   </div>
 
 </div>
 
 
-<<<<<<< HEAD:design/rakumono2/views/subject.erb
 <div class="gridster draggable" id="cart-list">
 
 </div>
@@ -142,56 +135,72 @@
 
 
 <script type="text/javascript">
-
-=======
-    <script type="text/javascript">
-    var data = <%= data.to_json %>;
->>>>>>> 97552446595dd21250bca44b1b8e0edfe17ef355:views/subject.erb
-var current_cate = null;
-$(function(){
-    $(".mono-cate-box").click(function(){
-	if ($(this).is( current_cate)) {
-	    // alert("SB");
-	    $(".mono-cate-wrapper").hide();
-	    current_cate.removeClass('mono-box-active');
-	    current_cate = null;
-	} else {
-	    if (current_cate != null){
-		current_cate.removeClass('mono-box-active');
-	    }
-	    $(".mono-cate-wrapper").hide();
-	    current_cate = $(this);
-	    current_cate.addClass('mono-box-active');
-	    items = data[current_cate.attr('id')]
-	    console.log(items)
-	    current_cate.parent().after($(".mono-cate-wrapper"));
-	    $(".mono-cate-wrapper").fadeIn('slow');
-	}
-    });
-});
-
-
-$(document).ready(function(){
-    var dragging = null;
-    function drag() {
-	if (dragging) {
-	    $(document.body).on("mousemove", function(e){
-		dragging.offset({
-		    top: e.pageY,
-		    left: e.pageX
-		});
-	    }).on("mouseup", function(e){
-		dragging = null;
-	    });
-	}
+var template = '<div class="mono-box"> <div class="mono-avater"><img src="{imageurl}" /><div class="mono-operation" ><a class="mono-add-to-list"></a></div> </div><div class="mono-info"><ul><li class="mono-title"><a href="{itemUrl}">{title}</a></li>  <li><span class="mono-price">{price}</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">{pointrate}</span></li>  <li class="mono-rank"><span>{reviewAverage}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>{reviewcount} Comments</span></li> <li><span class="badge">cheap</span>&nbsp;<span class="badge">nice</span>&nbsp;<span class="badge">speed</span></li></ul></div></div>';
+function render(container, id) {
+    
+    var arr = data[id];
+    var p;
+    var str = ''
+    
+    for (var i = 0; i < arr.length; i ++){
+	p = template;
+	str += p.replace('{title}',arr[i]['itemName']).replace('{price}', arr[i]['itemPrice']).replace('{imageurl}', arr[i]['imageUrl']).replace('{pointrate}', arr[i]['pointRate'])
+	.replace('{reviewcount}', arr[i]['reviewCount']).replace('{reviewAverage}', arr[i]['reviewAverage']).replace('{itemUrl}', arr[i]['itemUrl']);
+//	alert(str);
     }
-    $("#cart-list").on("mousedown", function(e) {
-	dragging = $(e.target);
-	drag();
-    }).on("mouseup", function(e){
-//	dragging = null;
-    }).on("mouseleave", function(e){
-//	dragging = null;
-    });
-});
+    str += '<div class="clear"></div>';
+    container.html(str);
+}
+
+ $(function(){
+     $(".mono-cate-box").click(function(){
+	 if ($(this).is( current_cate)) {
+	     
+	     $(".mono-cate-wrapper").hide();
+	     current_cate.removeClass('mono-box-active');
+	     current_cate = null;
+	 } else {
+	     if (current_cate != null){
+		 current_cate.removeClass('mono-box-active');
+	     }
+	     
+	     $(".mono-cate-wrapper").hide();
+	     current_cate = $(this);
+	     render($(".mono-cate-wrapper"), $(this).attr("id"));
+	     current_cate.addClass('mono-box-active');
+	     items = data[current_cate.attr('id')]
+	     console.log(items)
+	     current_cate.parent().after($(".mono-cate-wrapper"));
+	     $(".mono-cate-wrapper").fadeIn('slow');
+	 }
+     });
+ });
+
+
+ $(document).ready(function(){
+     var dragging = null;
+     function drag() {
+	 if (dragging) {
+	     $(document.body).on("mousemove", function(e){
+		 dragging.offset({
+		     top: e.pageY,
+		     left: e.pageX
+		 });
+	     }).on("mouseup", function(e){
+		 dragging = null;
+	     });
+	 }
+     }
+     $("#cart-list").on("mousedown", function(e) {
+	 dragging = $(e.target);
+	 drag();
+     }).on("mouseup", function(e){
+	 //	dragging = null;
+     }).on("mouseleave", function(e){
+	 //	dragging = null;
+     });
+ });
+
+var data = <%= data.to_json %>;
+var current_cate = null;
 </script>
