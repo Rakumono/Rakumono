@@ -20,6 +20,11 @@ ul {
 #page > section {
   padding-top: 50px; }
 
+.search-container {
+  background: white; }
+  .search-container .search-wrapper .search-bar {
+    width: 400px; }
+
 #navigation-container .navigation-title {
   height: 50px;
   line-height: 50px;
@@ -72,22 +77,33 @@ ul {
   background: #FFF;
   padding: 0px 0px 100px 0px; }
 
+footer {
+  background: #EEE;
+  text-align: center;
+  padding: 50px; }
+
 .mono-box-active {
-  background: #EEE; }
+  border-bottom: 10px solid rgba(0, 0, 0, 0.3); }
+
+.mono-cate-row:first-child {
+  margin-left: 10px; }
+.mono-cate-row a {
+  text-decoration: none; }
 
 .mono-cate-box {
   float: left;
-  border: 1px solid transparent;
-  padding: 10px 30px 10px 30px; }
+  padding: 10px 30px 10px 30px;
+  width: 140px;
+  height: 100px; }
+  .mono-cate-box a {
+    color: white; }
   .mono-cate-box .img {
-    width: 200px;
-    height: 200px;
     overflow: hidden; }
 
 .mono-cate-wrapper {
   display: none;
   clear: both;
-  background: #EEE;
+  background: white;
   padding: 20px 40px; }
 
 .mono-box {
@@ -102,11 +118,20 @@ ul {
   padding: 2px; }
   .mono-box .mono-avater {
     position: relative;
-    width: 300px;
-    height: 200px; }
-    .mono-box .mono-avater .mono-avater-img {
-      width: 300px;
-      height: 200px; }
+    width: 298px;
+    height: 298px;
+    text-aligin: center; }
+    .mono-box .mono-avater img {
+      display: block;
+      margin: 0 auto;
+      width: 298px;
+      height: 298px; }
+    .mono-box .mono-avater .mono-price-corner {
+      background: rgba(100, 100, 100, 0.9);
+      color: white;
+      right: 0;
+      bottom: 0;
+      position: absolute; }
     .mono-box .mono-avater:hover .mono-operation {
       display: block; }
     .mono-box .mono-avater .mono-operation {
@@ -120,7 +145,7 @@ ul {
       .mono-box .mono-avater .mono-operation a:hover {
         cursor: pointer; }
   .mono-box .mono-info {
-    height: 300px; }
+    height: 202px; }
     .mono-box .mono-info ul {
       padding: 5px; }
     .mono-box .mono-info ul li {
@@ -130,10 +155,10 @@ ul {
     margin-bottom: 30px;
     over-flow: hidden; }
   .mono-box .mono-price {
-    color: red;
+    color: white;
     font-size: 14px; }
   .mono-box .mono-point {
-    color: red;
+    color: white;
     font-size: 14px; }
   .mono-box .mono-rank {
     border-top: 1px dashed #AAA; }

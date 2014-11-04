@@ -46,6 +46,15 @@ ul {
   padding-top:$header-nav-height;	      
 }
 
+.search-container  {
+  background:white;
+  
+  .search-wrapper {
+    .search-bar {
+        width: 400px;
+    }
+  }
+}
 #navigation-container{
   .navigation-title {
     height: $navigation-title-height;
@@ -124,8 +133,8 @@ ul {
 ///////////////////////////////////
 //// mono
 ///////////////////////////////////
-$mono-cate-icon-w:200px;
-$mono-cate-icon-h:200px;
+$mono-cate-box-w:140px;
+$mono-cate-box-h:100px;
 $mono-cate-wrapper-w:100%;
 $mono-cate-wrapper-bg:#EEE;
 $mono-box-bg:#FFF;
@@ -136,32 +145,47 @@ $mono-sm-w: 150px;
 $mono-lg-h: 300px;
 $mono-lg-w: 300px;
 
-$mono-price-color: red;
+$mono-price-color: white;
 
+$mono-cate-active-border-color: rgba(0,0,0,0.3);
 .mono-cate-container {
   background:#FFF;
   padding:0px 0px 100px 0px;
+  
+}
+footer {
+  background:#EEE;
+  text-align:center;
+  padding: 50px;
 }
 .mono-box-active {
-  background:$mono-cate-wrapper-bg;  
+  border-bottom:10px solid $mono-cate-active-border-color;
 }
 
 .mono-cate-row {
  // padding:0px 40px;
  // padding:0px;
-
+   &:first-child{
+     margin-left:10px;
+     }
+  a {
+    text-decoration:none;
+  }
 }
 .mono-cate-box {
   float:left;
  // margin:10px 20px;
   //width:$mono-cate-icon-w;
   //height:$mono-cate-icon-h;
-  border: 1px solid transparent;
   padding:10px 30px 10px 30px;
-  
+  width: $mono-cate-box-w;
+  height: $mono-cate-box-h;
+  a {
+    color:white;
+  }
   .img {
-    width:$mono-cate-icon-w;
-    height:$mono-cate-icon-h;
+   // width:$mono-cate-icon-w;
+   // height:$mono-cate-icon-h;
     overflow:hidden;
   }
 }
@@ -172,12 +196,12 @@ $mono-price-color: red;
   clear:both;
   // width:100%;
    
-   background:$mono-cate-wrapper-bg;
+   background:white;
    padding: 20px 40px;
 }
 
-$mono-box-avater-w:300px;
-$mono-box-avater-h:200px;
+$mono-box-avater-w:298px;
+$mono-box-avater-h:298px;
 $mono-box-w: 300px;
 $mono-box-h: 500px;
 .mono-box {
@@ -195,14 +219,28 @@ $mono-box-h: 500px;
   $mono-operation-top:20px;
   //$mono-add-to-list-bg:url(../images/plus_gray.png);
   $mono-add-to-list-bg-hover:url(../images/plus.png);
+  
   .mono-avater {
     position: relative;
     width: $mono-box-avater-w;
     height: $mono-box-avater-h;
-    .mono-avater-img {
+    text-aligin:center;
+
+    img {
+      display:block;
+      margin: 0 auto;
       width:$mono-box-avater-w;
       height:$mono-box-avater-h;
     }
+      $mono-price-corner-bg:rgba(100,100,100,0.9);
+    .mono-price-corner{
+      background:$mono-price-corner-bg;
+      color:$mono-price-color;
+      right:0;
+      bottom:0;
+      position:absolute;
+    }
+    
     &:hover{
       .mono-operation {
         display:block;

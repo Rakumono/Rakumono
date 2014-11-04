@@ -4,39 +4,36 @@
 
 <div class="container mono-cate-container">
   
+  <div class="mono-cate-row">
+    
   <% monoindex = 0 %>
   <% data.each do |genre, items| %>
     
-    <% if monoindex%4 == 0 %>
-      <div class="mono-cate-row">
-    <% end %>
     <div class="clearfix overlay-effects effects mono-cate-box" id="<%= genre %>">
-      <div class="img">
-	<img src="<%= items[0]["imageUrl"] %>" />
-	<div class="overlay">
-	  <a href="#"><h3><%= genre %></h3></a>
-	  <a class="close-overlay hidden">x</a>
-	</div>
-      </div>	
+     
+	
+	  <a href="#"><h5><%= genre %></h5></a>
+		
     </div>
-    <% if monoindex%4 == 3 %>
-      </div>
-    <% end %>
-    <% monoindex += 1 %>
+   
   <% end %>
-    
+  <div class="clear"></div>
+      
+  </div>
   <div class="mono-cate-wrapper">
   
     <div class="mono-box">
       <div class="mono-avater">
 	<img src="images/swimhat.jpg" />
-	<div></div>
+	<div class="mono-price-corner">
+	  <span class="mono-price">$1000</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">Point by 10</span>
+	</div>
 	<div class="mono-operation" ><a class="mono-add-to-list btn btn-error">favorite</a></div>
       </div>
       <div class="mono-info">
 	
 	  <div class="mono-title">アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】</div>
-	  <div><span class="mono-price">$1000</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">Points:10</span></div>
+	  
 	  <div class="mono-rank"><span>4.5 Rank</span>&nbsp;&nbsp;<span>1432 Comments</span></div>
 	  <div><span class="badge">cheap</span>&nbsp;<span class="badge">nice</span>&nbsp;<span class="badge">speed</span></div>
 	</ul>
@@ -57,7 +54,7 @@
 
 
 <script type="text/javascript">
-var template = '<div class="mono-box"> <div class="mono-avater"><img src="{imageurl}" /><div class="mono-operation" ><a class="mono-add-to-list btn-sm btn-danger">favorite</a></div> </div><div class="mono-info"><ul><li class="mono-title"><a href="{itemUrl}">{title}</a></li>  <li><span class="mono-price">{price}</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">{pointrate}</span></li>  <li class="mono-rank"><span>Review:{reviewAverage}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>{reviewcount} Comments</span></li> <li><span class="badge">cheap</span>&nbsp;<span class="badge">nice</span>&nbsp;<span class="badge">speed</span></li></ul></div></div>';
+var template = '<div class="mono-box"> <div class="mono-avater"><img src="{imageurl}" /><div class="mono-operation" ><a class="mono-add-to-list btn-sm btn-danger">favorite</a></div><div class="mono-price-corner">  <span class="mono-price">&nbsp;&nbsp; {price} Yen</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">Point by {pointrate}&nbsp;&nbsp;</span></div> </div><div class="mono-info"><div class="mono-title"><a href="{itemUrl}">{title}</a></div> <div class="mono-rank"><span>Review:{reviewAverage}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>{reviewcount} Comments</span></div> <div><span class="badge">cheap</span>&nbsp;<span class="badge">nice</span>&nbsp;<span class="badge">speed</span></div></div></div>';
 
 
  $(function(){
@@ -67,7 +64,7 @@ var template = '<div class="mono-box"> <div class="mono-avater"><img src="{image
 
  $(document).ready(function(){
      var dragging = null;
-     function render(container, id) {
+     function render(container, id, color) {
 	 
 	 var arr = data[id];
 	 var p;
@@ -81,6 +78,7 @@ var template = '<div class="mono-box"> <div class="mono-avater"><img src="{image
 	 }
 	 str += '<div class="clear"></div>';
 	 container.html(str);
+	// container.css("background-color", color);
 	 add_widgetable();
      }
      
@@ -117,9 +115,9 @@ var template = '<div class="mono-box"> <div class="mono-avater"><img src="{image
      $(".mono-cate-box").click(function(){
 	 if ($(this).is( current_cate)) {
 	     
-	     $(".mono-cate-wrapper").hide();
-	     current_cate.removeClass('mono-box-active');
-	     current_cate = null;
+	 //    $(".mono-cate-wrapper").hide();
+	//     current_cate.removeClass('mono-box-active');
+	//     current_cate = null;
 	 } else {
 	     if (current_cate != null){
 		 current_cate.removeClass('mono-box-active');
@@ -127,7 +125,7 @@ var template = '<div class="mono-box"> <div class="mono-avater"><img src="{image
 	     
 	     $(".mono-cate-wrapper").hide();
 	     current_cate = $(this);
-	     render($(".mono-cate-wrapper"), $(this).attr("id"));
+	     render($(".mono-cate-wrapper"), $(this).attr("id"), $(this).css("background-color"));
 	     current_cate.addClass('mono-box-active');
 	     items = data[current_cate.attr('id')]
 	     console.log(items)
@@ -146,10 +144,14 @@ var template = '<div class="mono-box"> <div class="mono-avater"><img src="{image
 	 //	dragging = null;
      });
 
-     
+     $(".mono-cate-box").each(function (index){
+	 $(this).css("background-color", colors[index]);
+     });
  });
 
 
+
+var colors = ['#B9D1FF', '#D696FF', '#85A895', '#D2E0A6', '#FFBFE5', '#F51D90', '#FF8ED5', '#FFB326', '#BD6D1D'];
 
 var data = <%= data.to_json %>;
 var current_cate = null;
