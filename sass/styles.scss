@@ -72,10 +72,9 @@ ul {
 #cart-list {
   position: absolute;
   z-index:10000;
-  width:100px;
-  height:100px;
   right:100px;
   top:200px;
+  height:200px;
   background: #EFF;
   border: 1px solid #999;
 }
@@ -177,26 +176,29 @@ $mono-price-color: red;
    padding: 20px 40px;
 }
 
-$mono-box-avater-w:200px;
+$mono-box-avater-w:300px;
 $mono-box-avater-h:200px;
-$mono-box-w: 200px;
+$mono-box-w: 300px;
+$mono-box-h: 500px;
 .mono-box {
   float:left;
-  margin-right:15px;
-  margin-bottom:30px;
+  margin:0px 30px 30px 30px;
+  height:$mono-box-h;
   width:$mono-box-w;
   overflow:hidden;
-  
+  box-shadow: 0 0 2px 2px #CCC;
   background:$mono-box-bg;
-  border:1px solid #AAA;
+  border:1px solid #CCC;
   padding: 2px;
   $mono-operation-icon-size:32px;
   $mono-operation-left:20px;
   $mono-operation-top:20px;
-  $mono-add-to-list-bg:url(../images/plus_gray.png);
+  //$mono-add-to-list-bg:url(../images/plus_gray.png);
   $mono-add-to-list-bg-hover:url(../images/plus.png);
   .mono-avater {
     position: relative;
+    width: $mono-box-avater-w;
+    height: $mono-box-avater-h;
     .mono-avater-img {
       width:$mono-box-avater-w;
       height:$mono-box-avater-h;
@@ -212,15 +214,16 @@ $mono-box-w: 200px;
       top:$mono-operation-top;
       display:none;
       .mono-add-to-list {
-        background: $mono-add-to-list-bg;
+    //    background: $mono-add-to-list-bg;
       }
       .mono-add-to-list:hover {
-        background: $mono-add-to-list-bg-hover;
+     //   background: $mono-add-to-list-bg-hover;
       }
       a {
         display:block;
-        width:$mono-operation-icon-size;
-        height:$mono-operation-icon-size;
+        text-decoration: none;
+      //  width:$mono-operation-icon-size;
+      //  height:$mono-operation-icon-size;
         
       }
       a:hover {
@@ -228,13 +231,22 @@ $mono-box-w: 200px;
       }
     }
   }
+  
   .mono-info {
+    height:$mono-box-h - $mono-box-avater-h;
     ul {
       padding: 5px;
     }
     ul li {
       padding:5px 0px;
     }
+  }
+  
+  $mono-title-h:100px;
+  .mono-title {
+    height:$mono-title-h;
+    margin-bottom: 30px;
+    over-flow:hidden;
   }
   .mono-price {
     color: $mono-price-color;
