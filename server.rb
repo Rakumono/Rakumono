@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'sinatra'
 require 'json'
-
+require 'haml'
 
 get '/' do
   erb :index
@@ -9,6 +9,11 @@ end
 
 post '/' do
   redirect "/#{params[:keyword]}"
+end
+
+
+get '/testangular' do
+  haml :testangular
 end
 
 get '/:name' do
