@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='todoApp'>
   <head>
     <title>test angular</title>
     <script src='scripts/angular.min.js' type='text/javascript'></script>
+    <script>
+      var model = {
+      user: 'adam',
+      items: [{action: "Buyflowers", done: true},
+      {action: "Buyflowers", done: false},
+      {action: "Buyflowers", done: true}]
+      };
+      var todoApp = angular.module("todoApp", []);
+      todoApp.controller("ToDoCtrl", function($scope) {
+      $scope.todo = model;
+      });
+    </script>
   </head>
-  <body>
+  <body ng-controller='ToDoCtrl'>
     <header></header>
     <section>
-      <a>{{"AngularJS"}}</a>
+      <a>{{todo.user}}</a>
+      <span>{{todo.items.length}}</span>
+      <table>
+        <thead>
+          <tr>
+            <th>action</th>
+            <th>done</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat='item in todo.items'>
+            <td>{{item.action}}</td>
+            <td>{{item.done}}</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
     <footer></footer>
   </body>

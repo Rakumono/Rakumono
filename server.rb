@@ -3,6 +3,7 @@ require 'sinatra'
 require 'json'
 require 'haml'
 
+
 get '/' do
   erb :index
 end
@@ -11,6 +12,10 @@ post '/' do
   redirect "/#{params[:keyword]}"
 end
 
+
+get '/tagsinput' do
+  haml :com_tagsinput
+end
 
 get '/testangular' do
   haml :testangular

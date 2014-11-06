@@ -1,0 +1,8 @@
+%script{:src => 'vendors/bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js', :type =>'text/javascript'}
+%script{:src => 'vendors/bootstrap-tagsinput/bootstrap-tagsinput.min.js', :type =>'text/javascript'}
+%link{:href => 'vendors/bootstrap-tagsinput/bootstrap-tagsinput.css', :rel =>'text/javascript'}
+
+%input.tagsinput{:data => {:role => 'tagsinput'}, :placeholder => 'input tags'}
+
+:javascript
+  $(".tagsinput").tagsinput('items')
