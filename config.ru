@@ -1,3 +1,4 @@
-require './server'
+require './app'
+
 APPROOT = Dir.getwd
-run Sinatra::Application
+run RakApp.new
