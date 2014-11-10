@@ -41,6 +41,8 @@ body {
     .storebox .preview .mono-img {
       padding: 20px 10px 0px 45px; }
       .storebox .preview .mono-img img {
+        padding: 2px;
+        border: 1px solid #eee;
         width: 70px;
         height: 70px;
         margin-bottom: 20px;
