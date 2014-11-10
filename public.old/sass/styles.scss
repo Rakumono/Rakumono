@@ -1,0 +1,355 @@
+
+///////////////////////////////////////////
+/// Common Styles
+///////////////////////////////////////////
+
+// global variables
+$page-bg: #EEE;
+
+//
+$header-color-base: rgba(200, 120, 120, 0.7);
+$header-fore-color: rgb(255,255, 255);
+$header-hover-color: rgba(230, 110, 110, 0.7);
+$header-nav-height: 50px;
+
+//
+$navigation-title-height: 50px;
+$navigation-title-padding-left: 30px;
+$navigation-box-height: 50px;
+$mono-overlay-bg: rgba(180, 180, 180, 0.8);
+
+.clear {
+  clear:both;
+}
+ul {
+  list-style-type: none;
+}
+.header {
+  
+  color: $header-fore-color;
+  nav {
+    
+    height: $header-nav-height;
+    background: $header-color-base; 
+  }
+  a {
+    color: $header-fore-color;
+  }
+  :hover {
+    backround: $header-hover-color;
+  }
+}
+
+#page {
+  background: $page-bg;
+  padding:0;
+}
+
+.search-container  {
+  background:white;
+  
+  .search-wrapper {
+    .search-bar {
+        width: 400px;
+    }
+  }
+}
+#navigation-container{
+  .navigation-title {
+    height: $navigation-title-height;
+    line-height: $navigation-title-height;
+    vertical-align: middle;
+    padding-left: $navigation-title-padding-left;
+  //  background: white;
+    
+  }
+  .clothes-title {
+    
+  }
+
+  .navigation-box {
+    height: $navigation-box-height;
+    display:block;
+    
+  }
+  .soccer {
+    background: green;
+  }
+}
+
+#cart-list {
+  position: absolute;
+  z-index:10000;
+  right:100px;
+  top:200px;
+  height:200px;
+  background: #EFF;
+  border: 1px solid #999;
+}
+
+.overlay-effects {
+  
+  overflow:hidden;
+  .img {
+    position:relative;
+    height:100%;
+    width:100%;
+    img {
+      border: 0;
+    }
+  }
+  .img:hover{
+    .overlay {
+      opacity: 1;
+    }
+  }
+  .overlay {
+    display: block;
+    position:absolute;
+    height:100%;
+    width:100%;
+    z-index:20;
+    left:0px;
+    top:0px;
+    opacity: 0;
+    background:$mono-overlay-bg;
+    a {
+      //position: absolute;
+      display:block;
+      color: white;
+  //    background:black;
+      text-align:center;
+      margin-top:100px;
+      vertical-align:middle;
+      //left:0px;
+      //top:0px;
+      font-size:14px;
+     // margin: 0 auto;
+    }
+  }
+}
+
+///////////////////////////////////
+//// mono
+///////////////////////////////////
+$mono-cate-box-w:140px;
+$mono-cate-box-h:100px;
+$mono-cate-wrapper-w:100%;
+$mono-cate-wrapper-bg:#EEE;
+$mono-box-bg:#FFF;
+
+$mono-sm-h: 150px;
+$mono-sm-w: 150px;
+
+$mono-lg-h: 300px;
+$mono-lg-w: 300px;
+
+$mono-price-color: white;
+
+$mono-cate-active-border-color: rgba(0,0,0,0.3);
+.mono-cate-container {
+  background:#FFF;
+  padding:0px 0px 100px 0px;
+  
+}
+footer {
+  background:#EEE;
+  text-align:center;
+  padding: 50px;
+}
+.mono-box-active {
+  border-bottom:10px solid $mono-cate-active-border-color;
+}
+
+.mono-cate-row {
+ // padding:0px 40px;
+ // padding:0px;
+   &:first-child{
+     margin-left:10px;
+     }
+  a {
+    text-decoration:none;
+  }
+}
+.mono-cate-box {
+  float:left;
+ // margin:10px 20px;
+  //width:$mono-cate-icon-w;
+  //height:$mono-cate-icon-h;
+  padding:10px 30px 10px 30px;
+  width: $mono-cate-box-w;
+  height: $mono-cate-box-h;
+  a {
+    color:white;
+  }
+  .img {
+   // width:$mono-cate-icon-w;
+   // height:$mono-cate-icon-h;
+    overflow:hidden;
+  }
+}
+
+
+.mono-cate-wrapper {
+  display:none;
+  clear:both;
+  // width:100%;
+   
+   background:white;
+   padding: 20px 40px;
+}
+
+$mono-box-avater-w:298px;
+$mono-box-avater-h:298px;
+$mono-box-w: 300px;
+$mono-box-h: 500px;
+.mono-box {
+  float:left;
+  margin:0px 30px 30px 30px;
+  height:$mono-box-h;
+  width:$mono-box-w;
+  overflow:hidden;
+  box-shadow: 0 0 2px 2px #CCC;
+  background:$mono-box-bg;
+  border:1px solid #CCC;
+  padding: 2px;
+  $mono-operation-icon-size:32px;
+  $mono-operation-left:20px;
+  $mono-operation-top:20px;
+  //$mono-add-to-list-bg:url(../images/plus_gray.png);
+  $mono-add-to-list-bg-hover:url(../images/plus.png);
+  
+  .mono-avater {
+    position: relative;
+    width: $mono-box-avater-w;
+    height: $mono-box-avater-h;
+    text-aligin:center;
+
+    img {
+      display:block;
+      margin: 0 auto;
+      width:$mono-box-avater-w;
+      height:$mono-box-avater-h;
+    }
+      $mono-price-corner-bg:rgba(100,100,100,0.9);
+    .mono-price-corner{
+      background:$mono-price-corner-bg;
+      color:$mono-price-color;
+      right:0;
+      bottom:0;
+      position:absolute;
+    }
+    
+    &:hover{
+      .mono-operation {
+        display:block;
+      }
+    }
+    .mono-operation {
+      position: absolute;
+      left: $mono-operation-left;
+      top:$mono-operation-top;
+      display:none;
+      .mono-add-to-list {
+    //    background: $mono-add-to-list-bg;
+      }
+      .mono-add-to-list:hover {
+     //   background: $mono-add-to-list-bg-hover;
+      }
+      a {
+        display:block;
+        text-decoration: none;
+      //  width:$mono-operation-icon-size;
+      //  height:$mono-operation-icon-size;
+        
+      }
+      a:hover {
+      cursor:pointer;
+      }
+    }
+  }
+  
+  .mono-info {
+    height:$mono-box-h - $mono-box-avater-h;
+    ul {
+      padding: 5px;
+    }
+    ul li {
+      padding:5px 0px;
+    }
+  }
+  
+  $mono-title-h:100px;
+  .mono-title {
+    height:$mono-title-h;
+    margin-bottom: 30px;
+    over-flow:hidden;
+  }
+  .mono-price {
+    color: $mono-price-color;
+    font-size:14px;
+  }
+  .mono-point {
+    color: $mono-price-color;
+    font-size:14px;
+  }
+  .mono-rank {
+    border-top: 1px dashed #AAA;
+  }
+  .mono-rank span{
+    font-size:11px;
+  }
+
+  .mono-inner-box {
+    width: 300px;
+    overflow:hidden;
+    display:block;
+  }
+  
+  .mono-inner-small {
+    width: $mono-sm-w;
+    height: $mono-sm-h;
+    float:left;
+    img {
+      width: $mono-sm-w;
+      height: $mono-sm-h;
+    }
+  }
+  
+  .mono-inner-right {
+    width: $mono-lg-w - $mono-sm-w;
+    height: $mono-lg-h;
+    float:right;
+ //   background:#EEEEEE;
+  }
+  
+}
+
+
+/////////////////////////////////
+/// Grid
+/////////////////////////////////
+$grid-background-color: #AAA;
+$grid-avater-h:200px;
+$grid-avater-w:200px;
+
+.gridster{
+  li {
+    background: $grid-background-color;
+  }
+  
+  .grid-sm{
+    display:block;
+  }
+  .grid-lg{
+    display:none;
+    
+  }
+}
+.subject-gridster {
+  .grid-avater {
+    width:$grid-avater-w;
+    height:$grid-avater-h;
+  }
+}
+

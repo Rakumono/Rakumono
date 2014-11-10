@@ -1,4 +1,18 @@
-
+%section#search-section
+  .container.search-container
+    %br
+    %h1 Rakumono
+    %h2 More shopping, more happy
+    %br
+    .search-wrapper
+      %form.form-group(action="/" method="POST" accept-charset="UTF-8")
+        %input.form-controler.input-lg.search-bar.tagsinput(type="text" placeholder="input what you want" name="keyword")
+        %button.btn-lg.btn-primary Search
+        -(1..20).each do 
+        %br  
+        -end
+        
+        
 <section id="search-section">
   <div class="container search-container">
     <br />

@@ -1,31 +1,18 @@
 !!! 5
-
-%html{:lang=>"ja"}
+%html(lang="zh-cmn-Hans")
   %head
-    %meta{:charset => "UTF-8"}
-    %meta{:name => 'author', :content => 'Hiro Gen'}
-    %link{:href => 'styles/screen.css', :media => 'screen, projection', :rel =>'stylesheet' , :type => 'text/css' }
-    %link{:href => 'styles/print.css', :media => 'prnit', :rel => 'stylesheet', :type => 'text/css'}
-    %link{:href => 'styles/ie.css', :media => 'screen, projection', :rel => 'stylesheet', :type => 'text/css'}
-    %link{:href => 'vendors/bootstrap/css/bootstrap.min.css', :rel => 'stylesheet', :type => 'text/css'}
-    %link{:href => 'styles/styles.css', :rel => 'stylesheet' , :type => 'text/css'}
-    %script(type="text/javascript" src="scripts/jquery-1.11.1.min.js" )
-    %script(type="text/javascript" src="vendors/bootstrap/js/bootstrap.min.js")
+    %meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+    %link(rel="stylesheet" href="/vendors/bootstrap/css/bootstrap.min.css" )
+    %link(href="/vendors/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet")
+    %link(rel="stylesheet" href="/styles/styles.css")
+
+    %script(src="/javascripts/jquery-1.11.1.min.js")
+    %script(src="/javascripts/angular.min.js")  
+    %script(src="/vendors/bootstrap/js/bootstrap.min.js")
+    %script(src="/javascripts/scripts.js")
+
+    %script(src="/vendors/bootstrap-tagsinput/bootstrap-tagsinput.min.js")
+    %title Index
   %body
-    #page
-      %header.header
-        %nav.nav.navbar
-          .container
-            %a.nav.navbar-nav(href="/")
-              %img(src="images/logo.png")
-            .navbar.navbar-collapse.collapse
-              %ul.nav.navbar-nav.navbar-right
-                %li
-                  %a(href="/") Search
-                  %a(href="/") Navigation
-      #yield
-        =yield
-      %footer Copyright (c) 1997-2014 Rakuten, Inc. All Rights Reserved.
-
-
-
+    = yield
+    

@@ -1,0 +1,190 @@
+.clear {
+  clear: both; }
+
+ul {
+  list-style-type: none; }
+
+.header {
+  color: white; }
+  .header nav {
+    height: 50px;
+    background: rgba(200, 120, 120, 0.7); }
+  .header a {
+    color: white; }
+  .header :hover {
+    backround: rgba(230, 110, 110, 0.7); }
+
+#page {
+  background: #EEE;
+  padding: 0; }
+
+.search-container {
+  background: white; }
+  .search-container .search-wrapper .search-bar {
+    width: 400px; }
+
+#navigation-container .navigation-title {
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
+  padding-left: 30px; }
+#navigation-container .navigation-box {
+  height: 50px;
+  display: block; }
+#navigation-container .soccer {
+  background: green; }
+
+#cart-list {
+  position: absolute;
+  z-index: 10000;
+  right: 100px;
+  top: 200px;
+  height: 200px;
+  background: #EFF;
+  border: 1px solid #999; }
+
+.overlay-effects {
+  overflow: hidden; }
+  .overlay-effects .img {
+    position: relative;
+    height: 100%;
+    width: 100%; }
+    .overlay-effects .img img {
+      border: 0; }
+  .overlay-effects .img:hover .overlay {
+    opacity: 1; }
+  .overlay-effects .overlay {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    background: rgba(180, 180, 180, 0.8); }
+    .overlay-effects .overlay a {
+      display: block;
+      color: white;
+      text-align: center;
+      margin-top: 100px;
+      vertical-align: middle;
+      font-size: 14px; }
+
+.mono-cate-container {
+  background: #FFF;
+  padding: 0px 0px 100px 0px; }
+
+footer {
+  background: #EEE;
+  text-align: center;
+  padding: 50px; }
+
+.mono-box-active {
+  border-bottom: 10px solid rgba(0, 0, 0, 0.3); }
+
+.mono-cate-row:first-child {
+  margin-left: 10px; }
+.mono-cate-row a {
+  text-decoration: none; }
+
+.mono-cate-box {
+  float: left;
+  padding: 10px 30px 10px 30px;
+  width: 140px;
+  height: 100px; }
+  .mono-cate-box a {
+    color: white; }
+  .mono-cate-box .img {
+    overflow: hidden; }
+
+.mono-cate-wrapper {
+  display: none;
+  clear: both;
+  background: white;
+  padding: 20px 40px; }
+
+.mono-box {
+  float: left;
+  margin: 0px 30px 30px 30px;
+  height: 500px;
+  width: 300px;
+  overflow: hidden;
+  box-shadow: 0 0 2px 2px #CCC;
+  background: #FFF;
+  border: 1px solid #CCC;
+  padding: 2px; }
+  .mono-box .mono-avater {
+    position: relative;
+    width: 298px;
+    height: 298px;
+    text-aligin: center; }
+    .mono-box .mono-avater img {
+      display: block;
+      margin: 0 auto;
+      width: 298px;
+      height: 298px; }
+    .mono-box .mono-avater .mono-price-corner {
+      background: rgba(100, 100, 100, 0.9);
+      color: white;
+      right: 0;
+      bottom: 0;
+      position: absolute; }
+    .mono-box .mono-avater:hover .mono-operation {
+      display: block; }
+    .mono-box .mono-avater .mono-operation {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      display: none; }
+      .mono-box .mono-avater .mono-operation a {
+        display: block;
+        text-decoration: none; }
+      .mono-box .mono-avater .mono-operation a:hover {
+        cursor: pointer; }
+  .mono-box .mono-info {
+    height: 202px; }
+    .mono-box .mono-info ul {
+      padding: 5px; }
+    .mono-box .mono-info ul li {
+      padding: 5px 0px; }
+  .mono-box .mono-title {
+    height: 100px;
+    margin-bottom: 30px;
+    over-flow: hidden; }
+  .mono-box .mono-price {
+    color: white;
+    font-size: 14px; }
+  .mono-box .mono-point {
+    color: white;
+    font-size: 14px; }
+  .mono-box .mono-rank {
+    border-top: 1px dashed #AAA; }
+  .mono-box .mono-rank span {
+    font-size: 11px; }
+  .mono-box .mono-inner-box {
+    width: 300px;
+    overflow: hidden;
+    display: block; }
+  .mono-box .mono-inner-small {
+    width: 150px;
+    height: 150px;
+    float: left; }
+    .mono-box .mono-inner-small img {
+      width: 150px;
+      height: 150px; }
+  .mono-box .mono-inner-right {
+    width: 150px;
+    height: 300px;
+    float: right; }
+
+.gridster li {
+  background: #AAA; }
+.gridster .grid-sm {
+  display: block; }
+.gridster .grid-lg {
+  display: none; }
+
+.subject-gridster .grid-avater {
+  width: 200px;
+  height: 200px; }
