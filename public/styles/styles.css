@@ -28,6 +28,14 @@ body {
   height: 260px;
   position: relative;
   text-align: center; }
+  .storebox .caption {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+    background: #EEE; }
   .storebox a {
     color: white; }
   .storebox .preview {
@@ -42,12 +50,17 @@ body {
       padding: 20px 10px 0px 45px; }
       .storebox .preview .mono-img img {
         padding: 2px;
-        border: 1px solid #eee;
+        border: 1px solid #ddd;
         width: 70px;
         height: 70px;
         margin-bottom: 20px;
         display: block;
         margin-right: 25px;
         float: left; }
+        .storebox .preview .mono-img img:hover {
+          width: 90px;
+          height: 90px;
+          margin-right: 5px;
+          margin-bottom: 0px; }
 
 /*# sourceMappingURL=styles.css.map */
