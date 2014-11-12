@@ -1,6 +1,11 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import service.KeywordDetect;
+import service.ShopDetect;
+import service.ShopItemDetect;
 
 public class TestAPI {
 	
@@ -24,8 +29,22 @@ public class TestAPI {
 		
 //		GenreClimber.getThirdLevelGenreNamemap();
 		
-		KeywordDetect kd = new KeywordDetect();
-		System.out.println(kd.findRelatedWords("desk", 2, 2));
+//		KeywordDetect kd = new KeywordDetect();
+//		System.out.println(kd.findRelatedWords("青森", 10, 9));
+
+//		List<String> words = new ArrayList<String>();
+//		words.add("お茶");
+//		words.add("いちご");
+//		words.add("コーラ");
+//		words.add("焼き鳥");
+//		words.add("パン粉");
+//		words.add("サラダ油");
+//		ShopDetect sd = new ShopDetect();
+//		System.out.println(sd.findShops(words));
+		
+		ShopItemDetect sd = new ShopItemDetect();
+		System.out.println(sd.getItemsInShop("お茶", "1", "kenkocom"));
+		
 	}
 
 }

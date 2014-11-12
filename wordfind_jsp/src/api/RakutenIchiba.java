@@ -5,7 +5,14 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+
+
+
+
+
+
 
 
 
@@ -43,7 +50,7 @@ public class RakutenIchiba {
             HttpGet httpget = new HttpGet(urlConstructor(condition));
            
 
-//            System.out.println("Executing request " + httpget.getRequestLine());
+            System.out.println("Executing request " + httpget.getRequestLine());
 
             // Create a custom response handler
             ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
@@ -81,10 +88,10 @@ public class RakutenIchiba {
 				.setParameter("genreId", condition.getGenreId())
 				.setParameter("shopCode", condition.getShopCode())
 				.setParameter("applicationId", condition.getAppID())
-				.setParameter("hits", condition.getHits())
+//				.setParameter("hits", condition.getHits())
 				.setParameter("page", condition.getPage())
 				.setParameter("sort", condition.getSort_method())
-				.setParameter("genreInformationFlag", condition.getGenreInformationFlag())
+//				.setParameter("genreInformationFlag", condition.getGenreInformationFlag())
 				.setParameter("orFlag", condition.getOrFlag()).build();
 		return uri;
 	}
@@ -129,9 +136,30 @@ public class RakutenIchiba {
 	}
 	
 	public String ichibaItemSearch(SearchCondition condition, int flag) throws Exception{
-		String[] appIDs = {"1027344104687047127", "1065391229178026160", "1020597589906679143", "1051579793540243350", "1049495469872040215"};
+		String[] appIDs = {"1027344104687047127", "1065391229178026160", "1020597589906679143", "1051579793540243350", "1049495469872040215", "1030657779787553704"};
+//		new MyThread(condition, appIDs[flag%5]).start();
 		condition.setAppID(appIDs[flag%5]);
 		return ichibaItemSearch(condition);
 	}
+
+	public HashSet<String> getShopCodes(String jsonString, HashMap<String, String> shopNameMap, HashMap<String, String> shopUrlMap) {
+		HashSet<String> shopSet = new HashSet<String>();
+		SearchResult searchResult = JSON.parseObject(jsonString, SearchResult.class);
+		List<HashMap<String, Item>> items = searchResult.getItems();
+		for(HashMap<String, Item> item_a : items){
+			Item item = item_a.get("Item");
+			shopSet.add(item.getShopCode());
+			shopNameMap.put(item.getShopCode(), item.getShopName());
+			shopUrlMap.put(item.getShopCode(), item.getShopUrl());
+		}
+		return shopSet;
+	}
+
+	public Item getItemFromJson(String jsonString) {
+		SearchResult searchResult = JSON.parseObject(jsonString, SearchResult.class);
+		return searchResult.getItems().get(0).get("Item");
+	}
 	
+
+
 }
