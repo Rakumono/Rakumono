@@ -11,6 +11,8 @@ import api.RakutenIchiba;
 import api.SearchCondition;
 
 public class ShopItemDetect {
+	//input: String keyword, String hits, String shopCode
+	//output: json string
 	public String getItemsInShop(String keyword, String hits, String shopCode) throws Exception{
 		SearchCondition condition = new SearchCondition();
 		RakutenIchiba ichiba = new RakutenIchiba();

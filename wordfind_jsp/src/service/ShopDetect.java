@@ -17,6 +17,8 @@ import api.SearchCondition;
 
 public class ShopDetect {
 	
+	//the format of input: List<String> 
+	//output: json string
 	public String findShops(List<String> keywords) throws Exception{
 		HashMap<String, String> shopNameMap = new HashMap<String, String>();
 		HashMap<String, String> shopUrlMap = new HashMap<String, String>();
