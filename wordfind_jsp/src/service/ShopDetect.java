@@ -11,6 +11,7 @@ import util.GenreClimber;
 
 import com.alibaba.fastjson.JSON;
 
+import encode.Shop;
 import encode.ShopResult;
 import api.RakutenIchiba;
 import api.SearchCondition;
@@ -24,29 +25,52 @@ public class ShopDetect {
 		HashMap<String, String> shopUrlMap = new HashMap<String, String>();
 		
 		Set<String> shopSet = new HashSet<String>();
+		Set<String> shopSet_temp = new HashSet<String>();
+		List<String> keywords_origin = new ArrayList<String>();
 		if(keywords.size() < 2){
 			return "";
 		}
 		shopSet = findShopListByKeywords(keywords.get(0), shopNameMap, shopUrlMap);
-		keywords.remove(keywords.get(0));
+		String firstKeyword = keywords.get(0);
+		keywords.remove(firstKeyword);
+		keywords_origin.add(firstKeyword);
 		for(String keyword : keywords){
+			shopSet_temp.clear();
+			shopSet_temp.addAll(shopSet);
 			shopSet.retainAll(findShopListByKeywords(keyword, shopNameMap, shopUrlMap));
+			//consider when there's no result. Will finish it later
+			if(shopSet.size() == 0){
+				ShopResult shopResult = new ShopResult();
+				List<Shop> shops = new ArrayList<Shop>();
+				for(String shopCode : shopSet_temp){
+					Shop shop = new Shop();
+					shop.setShopCode(shopCode);
+					shop.setShopName(shopNameMap.get(shopCode));
+					shop.setShopUrl(shopUrlMap.get(shopCode));
+					shops.add(shop);
+				}
+				shopResult.setShops(shops);
+				shopResult.setFull(false);
+				shopResult.setKeywords(keywords_origin);
+				return JSON.toJSONString(shopResult);
+			}
+			keywords_origin.add(keyword);
 			Thread.sleep(500);
 		}
-		//consider when there's no result. Will finish it later
-		if(shopSet.size() == 0){
-			
-		}
 		//construct result
-		List<ShopResult> shopResults = new ArrayList<ShopResult>();
+		ShopResult shopResult = new ShopResult();
+		List<Shop> shops = new ArrayList<Shop>();
 		for(String shopCode : shopSet){
-			ShopResult shopResult = new ShopResult();
-			shopResult.setShopCode(shopCode);
-			shopResult.setShopName(shopNameMap.get(shopCode));
-			shopResult.setShopUrl(shopUrlMap.get(shopCode));
-			shopResults.add(shopResult);
+			Shop shop = new Shop();
+			shop.setShopCode(shopCode);
+			shop.setShopName(shopNameMap.get(shopCode));
+			shop.setShopUrl(shopUrlMap.get(shopCode));
+			shops.add(shop);
 		}
-		return JSON.toJSONString(shopResults);
+		shopResult.setShops(shops);
+		shopResult.setFull(true);
+		shopResult.setKeywords(keywords_origin);
+		return JSON.toJSONString(shopResult);
 	}
 	
 	/**

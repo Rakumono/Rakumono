@@ -3,25 +3,25 @@ package encode;
 import java.util.List;
 
 public class ShopResult {
-	private String shopCode;
-	private String shopName;
-	private String shopUrl;
-	public String getShopCode() {
-		return shopCode;
+	private boolean isFull;
+	private List<Shop> shops;
+	private List<String> keywords;
+	public boolean isFull() {
+		return isFull;
 	}
-	public void setShopCode(String shopCode) {
-		this.shopCode = shopCode;
+	public void setFull(boolean isFull) {
+		this.isFull = isFull;
 	}
-	public String getShopName() {
-		return shopName;
+	public List<Shop> getShops() {
+		return shops;
 	}
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
+	public void setShops(List<Shop> shops) {
+		this.shops = shops;
 	}
-	public String getShopUrl() {
-		return shopUrl;
+	public List<String> getKeywords() {
+		return keywords;
 	}
-	public void setShopUrl(String shopUrl) {
-		this.shopUrl = shopUrl;
+	public void setKeywords(List<String> keywords) {
+		this.keywords = keywords;
 	}
 }
