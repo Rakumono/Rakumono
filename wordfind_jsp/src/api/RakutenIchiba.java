@@ -88,7 +88,7 @@ public class RakutenIchiba {
 				.setParameter("genreId", condition.getGenreId())
 				.setParameter("shopCode", condition.getShopCode())
 				.setParameter("applicationId", condition.getAppID())
-//				.setParameter("hits", condition.getHits())
+				.setParameter("hits", condition.getHits())
 				.setParameter("page", condition.getPage())
 				.setParameter("sort", condition.getSort_method())
 //				.setParameter("genreInformationFlag", condition.getGenreInformationFlag())
@@ -155,9 +155,9 @@ public class RakutenIchiba {
 		return shopSet;
 	}
 
-	public Item getItemFromJson(String jsonString) {
+	public Item getItemFromJson(String jsonString, int num) {
 		SearchResult searchResult = JSON.parseObject(jsonString, SearchResult.class);
-		return searchResult.getItems().get(0).get("Item");
+		return searchResult.getItems().get(num).get("Item");
 	}
 	
 
