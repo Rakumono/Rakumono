@@ -24,10 +24,18 @@ body {
   color: #F8F8F8;
   background: url(../images/intro-bg.jpg) no-repeat scroll center center/cover transparent; }
 
+#shop-carousel {
+  padding-top: 50px;
+  height: 600px; }
+
+.shop-list {
+  height: 400px; }
+
 .storebox {
   height: 260px;
   position: relative;
-  text-align: center; }
+  text-align: center;
+  margin: 20px auto; }
   .storebox .caption {
     position: absolute;
     width: 100%;
@@ -62,5 +70,3 @@ body {
           height: 90px;
           margin-right: 5px;
           margin-bottom: 0px; }
-
-/*# sourceMappingURL=styles.css.map */

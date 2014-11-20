@@ -3,6 +3,7 @@
 
 body {
   padding-top: 50px;
+  
 }
 
 
@@ -42,11 +43,19 @@ body {
     
   }
 }
+#shop-carousel {
+  padding-top: 50px;
+  height:600px;
+}
+.shop-list {
+  height: 400px;
+}
 
 .storebox {
   height:260px;  
   position: relative;
   text-align: center;
+  margin:20px auto;
   .caption {
     position:absolute;
     width:100%;

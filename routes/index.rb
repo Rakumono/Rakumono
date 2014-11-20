@@ -23,5 +23,9 @@ class RakApp < Sinatra::Base
     item_num = 3 unless params['item_num']
     string = HTTP.get URI("#{API_HOST}api_num=2&shopname=#{params[:shopname]}&word=#{params[:keyword]}&item_num=#{item_num}")
   end
+  
+  get '/shop' do
+    haml :mono
+  end
 
 end
