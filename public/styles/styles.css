@@ -24,6 +24,28 @@ body {
   color: #F8F8F8;
   background: url(../images/intro-bg.jpg) no-repeat scroll center center/cover transparent; }
 
+.clear {
+  clear: both; }
+
+#monolist {
+  padding-top: 50px; }
+
+.mono-box {
+  border: 1px solid #AAA;
+  height: 340px;
+  width: 220px;
+  margin: 10px 20px;
+  float: left;
+  text-align: center; }
+  .mono-box img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border: 0px solid transparent; }
+
+#monolist {
+  background: #DDD; }
+
 #shop-carousel {
   padding-top: 50px;
   height: 600px; }
