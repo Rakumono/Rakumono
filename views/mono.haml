@@ -1,5 +1,17 @@
 
 #monolist.section
+  
+  - if @searchinfo != nil
+    - @searchinfo['shops'].each do |shop|
+      .slide
+        .container
+          .row
+            .col-lg-12
+              .title 
+                %h1 
+                  = shop['shopName']
+              .category-list.renderable{:id => shop['shopCode'] }
+                
   .slide
     .container
       .row
@@ -7,9 +19,9 @@
           .title 
             %h1 萬屋    
           .category-list
-            %h2.category-title#suiei suiei
+            %h2.category-title#suiei banana
             .mono-list
-              .mono-box
+              %a.mono-box(href="#")
                 .mono-avater
                   %img(src="/images/swimhat.jpg")
                   .mono-price-corner
@@ -41,9 +53,39 @@
                 test
               .clear
           .category-list
-            %h2.category-title boshi
-            .mono-list.row
-              .col-lg-3.col-md-4.col-sm-6
+            %h2.category-title#suiei banana
+            .mono-list
+              %a.mono-box(href="#")
+                .mono-avater
+                  %img(src="/images/swimhat.jpg")
+                  .mono-price-corner
+                    %span.mono-price $1000
+                    %span.mono-price &nbsp;&nbsp;|&nbsp;&nbsp;
+                    %span.mono-point Point by 10
+                .mono-info
+                  .mono-title アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】
+                  .mono-rank
+                    %span 4.5 Rank
+                    &nbsp; &nbsp;
+                    %span 1432 Comments
+                  .mono-tag
+                    .badge cheap
+                    .badge nice
+                    .badge speed
+              .mono-box
+                .mono-avater
+                  %img(src="")
+                test
+              .mono-box
+                %img(src="")
+                test
+              .mono-box
+                %img(src="")
+                test
+              .mono-box
+                %img(src="")
+                test
+              .clear
   .slide
     .container
       .row
@@ -54,9 +96,15 @@
             .mono-list.row
 
 :javascript
+  
   $(document).ready(function() {
-    $('#fullpage').fullpage();
+  $('#monolist').fullpage( {
+  scrollOverflow: true
+  });
+  $('.renderable').each(function() {
+  var id = $(this).attr('id');
+  //$(this).html(get_shop_mono(id, '', 3));
   });
   
-
-
+  });
+  

@@ -30,25 +30,8 @@ body {
 #monolist {
   padding-top: 50px; }
 
-.mono-box {
-  border: 1px solid #AAA;
-  height: 340px;
-  width: 220px;
-  margin: 10px 20px;
-  float: left;
-  text-align: center; }
-  .mono-box img {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    border: 0px solid transparent; }
-
 #monolist {
   background: #DDD; }
-
-#shop-carousel {
-  padding-top: 50px;
-  height: 600px; }
 
 .shop-list {
   height: 400px; }
@@ -95,8 +78,10 @@ body {
 
 .mono-box {
   float: left;
+  text-align: center;
+  display: block;
   margin: 0px 30px 30px 30px;
-  height: 340px;
+  height: 360px;
   width: 220px;
   overflow: hidden;
   box-shadow: 0 0 2px 2px #CCC;
@@ -133,7 +118,7 @@ body {
         cursor: pointer; }
   .mono-box .mono-info {
     text-align: left;
-    height: 140px; }
+    height: 160px; }
     .mono-box .mono-info ul {
       padding: 5px; }
     .mono-box .mono-info ul li {
@@ -141,7 +126,10 @@ body {
   .mono-box .mono-title {
     height: 100px;
     margin-bottom: 30px;
-    over-flow: hidden; }
+    over-flow: hidden;
+    line-height: 1.5em;
+    height: 4.5em;
+    overflow: hidden; }
   .mono-box .mono-price {
     color: red;
     font-size: 14px; }

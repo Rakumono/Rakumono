@@ -15,19 +15,30 @@ class RakApp < Sinatra::Base
   post '/' do
     content_type :json
     keywords = params[:keyword].split ","
-    keywords_param = keywords.join("%3E").strip
-    string = HTTP.get URI("#{API_HOST}api_num=1&keywords=#{keywords_param}")
+    keywords_param = keywords.join(">").strip
+    string = HTTP.get URI( URI::escape("#{API_HOST}api_num=1&keywords=#{keywords_param}"))
   end
 
   get '/item' do
     content_type :json
     item_num = 3 unless params['item_num']
-    string = HTTP.get URI("#{API_HOST}api_num=2&shopname=#{params[:shopname]}&word=#{params[:keyword]}&item_num=#{item_num}")
+    string = HTTP.get URI(URI::escape("#{API_HOST}api_num=2&shopname=#{params[:shopname]}&word=#{params[:keyword]}&item_num=#{item_num}"))
   end
   
   get '/shop' do
     haml :mono
   end
 
+  post '/search' do
+    #content_type :json
+    keywords = params[:keyword].split ","
+    keywords_param = keywords.join(">")
+    
+    keywords.each do |k|
+    end
+    string = HTTP.get URI( URI::escape("#{API_HOST}api_num=1&keywords=#{keywords_param}"))
+    @searchinfo = JSON.parse(string)
+    haml :mono
+  end
 end
 
