@@ -125,3 +125,139 @@ body {
     }
   }
 }
+
+
+$mono-box-avater-w:200px;
+$mono-box-avater-h:200px;
+$mono-box-w: 220px;
+$mono-box-h: 360px;
+$mono-box-bg: white;
+$mono-price-color: red;
+$mono-sm-w: 200px;
+$mono-sm-h:200px;
+$mono-lg-w:200px;
+$mono-lg-h:200px;
+.mono-box {
+  float:left;
+  text-align: left;
+  margin:0px 30px 30px 30px;
+  height:$mono-box-h;
+  width:$mono-box-w;
+  overflow:hidden;
+  box-shadow: 0 0 2px 2px #CCC;
+  background:$mono-box-bg;
+  border:1px solid #CCC;
+  padding: 2px;
+  $mono-operation-icon-size:32px;
+  $mono-operation-left:20px;
+  $mono-operation-top:20px;
+  //$mono-add-to-list-bg:url(../images/plus_gray.png);
+  $mono-add-to-list-bg-hover:url(../images/plus.png);
+  
+  .mono-avater {
+    position: relative;
+    width: $mono-box-avater-w;
+    height: $mono-box-avater-h;
+    text-aligin:center;
+
+    img {
+      display:block;
+      margin: 0 auto;
+      width:$mono-box-avater-w;
+      height:$mono-box-avater-h;
+    }
+      $mono-price-corner-bg:rgba(100,100,100,0.9);
+    .mono-price-corner{
+      background:$mono-price-corner-bg;
+      color:$mono-price-color;
+      right:0;
+      bottom:0;
+      position:absolute;
+    }
+    
+    &:hover{
+      .mono-operation {
+        display:block;
+      }
+    }
+    .mono-operation {
+      position: absolute;
+      left: $mono-operation-left;
+      top:$mono-operation-top;
+      display:none;
+      .mono-add-to-list {
+    //    background: $mono-add-to-list-bg;
+      }
+      .mono-add-to-list:hover {
+     //   background: $mono-add-to-list-bg-hover;
+      }
+      a {
+        display:block;
+        text-decoration: none;
+      //  width:$mono-operation-icon-size;
+      //  height:$mono-operation-icon-size;
+        
+      }
+      a:hover {
+      cursor:pointer;
+      }
+    }
+  }
+  
+  .mono-info {
+    text-align: left;
+    height:$mono-box-h - $mono-box-avater-h;
+    ul {
+      padding: 5px;
+    }
+    ul li {
+      padding:5px 0px;
+    }
+  }
+  
+  $mono-title-h:100px;
+  .mono-title {
+    height:$mono-title-h;
+    margin-bottom: 30px;
+    over-flow:hidden;
+  }
+  .mono-price {
+    color: $mono-price-color;
+    font-size:14px;
+  }
+  .mono-point {
+    color: $mono-price-color;
+    font-size:14px;
+  }
+  .mono-rank {
+    border-top: 1px dashed #AAA;
+  }
+  .mono-rank span{
+    font-size:11px;
+  }
+
+  .mono-inner-box {
+    width: 300px;
+    overflow:hidden;
+    display:block;
+  }
+  
+  .mono-inner-small {
+    width: $mono-sm-w;
+    height: $mono-sm-h;
+    float:left;
+    img {
+      width: $mono-sm-w;
+      height: $mono-sm-h;
+    }
+  }
+  
+  .mono-inner-right {
+    width: $mono-lg-w - $mono-sm-w;
+    height: $mono-lg-h;
+    float:right;
+ //   background:#EEEEEE;
+  }
+  
+}
+

@@ -92,3 +92,80 @@ body {
           height: 90px;
           margin-right: 5px;
           margin-bottom: 0px; }
+
+.mono-box {
+  float: left;
+  margin: 0px 30px 30px 30px;
+  height: 340px;
+  width: 220px;
+  overflow: hidden;
+  box-shadow: 0 0 2px 2px #CCC;
+  background: white;
+  border: 1px solid #CCC;
+  padding: 2px; }
+  .mono-box .mono-avater {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    text-aligin: center; }
+    .mono-box .mono-avater img {
+      display: block;
+      margin: 0 auto;
+      width: 200px;
+      height: 200px; }
+    .mono-box .mono-avater .mono-price-corner {
+      background: rgba(100, 100, 100, 0.9);
+      color: red;
+      right: 0;
+      bottom: 0;
+      position: absolute; }
+    .mono-box .mono-avater:hover .mono-operation {
+      display: block; }
+    .mono-box .mono-avater .mono-operation {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      display: none; }
+      .mono-box .mono-avater .mono-operation a {
+        display: block;
+        text-decoration: none; }
+      .mono-box .mono-avater .mono-operation a:hover {
+        cursor: pointer; }
+  .mono-box .mono-info {
+    text-align: left;
+    height: 140px; }
+    .mono-box .mono-info ul {
+      padding: 5px; }
+    .mono-box .mono-info ul li {
+      padding: 5px 0px; }
+  .mono-box .mono-title {
+    height: 100px;
+    margin-bottom: 30px;
+    over-flow: hidden; }
+  .mono-box .mono-price {
+    color: red;
+    font-size: 14px; }
+  .mono-box .mono-point {
+    color: red;
+    font-size: 14px; }
+  .mono-box .mono-rank {
+    border-top: 1px dashed #AAA; }
+  .mono-box .mono-rank span {
+    font-size: 11px; }
+  .mono-box .mono-inner-box {
+    width: 300px;
+    overflow: hidden;
+    display: block; }
+  .mono-box .mono-inner-small {
+    width: 200px;
+    height: 200px;
+    float: left; }
+    .mono-box .mono-inner-small img {
+      width: 200px;
+      height: 200px; }
+  .mono-box .mono-inner-right {
+    width: 0px;
+    height: 200px;
+    float: right; }
+
+/*# sourceMappingURL=styles.css.map */

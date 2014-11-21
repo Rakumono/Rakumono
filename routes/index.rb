@@ -15,7 +15,8 @@ class RakApp < Sinatra::Base
   post '/' do
     content_type :json
     keywords = params[:keyword].split ","
-    string = HTTP.get URI("#{API_HOST}api_num=1&keywords=#{keywords.join("%3E")}")
+    keywords_param = keywords.join("%3E").strip
+    string = HTTP.get URI("#{API_HOST}api_num=1&keywords=#{keywords_param}")
   end
 
   get '/item' do
@@ -29,3 +30,4 @@ class RakApp < Sinatra::Base
   end
 
 end
+
