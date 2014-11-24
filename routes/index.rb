@@ -33,8 +33,9 @@ class RakApp < Sinatra::Base
     #content_type :json
     keywords = params[:keyword].split ","
     keywords_param = keywords.join(">")
-    
+    @monos = Array.new();
     keywords.each do |k|
+      @monos.push k.strip
     end
     string = HTTP.get URI( URI::escape("#{API_HOST}api_num=1&keywords=#{keywords_param}"))
     @searchinfo = JSON.parse(string)

@@ -111,81 +111,68 @@ body {
 }
 
 
-$mono-box-avater-w:200px;
-$mono-box-avater-h:200px;
-$mono-box-w: 220px;
-$mono-box-h: 360px;
+$mono-box-avater-w:300px;
+$mono-box-avater-h:300px;
+$mono-box-w: 300px;
+$mono-box-h: 460px;
 $mono-box-bg: white;
 $mono-price-color: red;
 $mono-sm-w: 200px;
 $mono-sm-h:200px;
 $mono-lg-w:200px;
 $mono-lg-h:200px;
+
+
+.mono-container {
+  padding-left: 50px;
+  padding-bottom: 100px;
+}
 .mono-box {
   float:left;
   text-align: center;
   display: block;
-  margin:0px 30px 30px 30px;
+  margin:0px 30px 30px 0px;
   height:$mono-box-h;
   width:$mono-box-w;
   overflow:hidden;
   box-shadow: 0 0 2px 2px #CCC;
   background:$mono-box-bg;
-  border:1px solid #CCC;
+  border:1px solid #DDD;
   padding: 2px;
   $mono-operation-icon-size:32px;
   $mono-operation-left:20px;
   $mono-operation-top:20px;
   //$mono-add-to-list-bg:url(../images/plus_gray.png);
   $mono-add-to-list-bg-hover:url(../images/plus.png);
-  
+  a {
+    display:block;
+    text-decoration: none; 
+  }
+  a:hover {
+  cursor:pointer;
+  }
   .mono-avater {
     position: relative;
     width: $mono-box-avater-w;
     height: $mono-box-avater-h;
     text-aligin:center;
-
+    display:block;
     img {
+      
       display:block;
       margin: 0 auto;
       width:$mono-box-avater-w;
       height:$mono-box-avater-h;
+      border:0px solid parent;
     }
-      $mono-price-corner-bg:rgba(100,100,100,0.9);
+    $mono-price-corner-bg:rgba(200,200,200,0.9);
     .mono-price-corner{
       background:$mono-price-corner-bg;
+      padding:2px 10px;
       color:$mono-price-color;
       right:0;
       bottom:0;
       position:absolute;
-    }
-    
-    &:hover{
-      .mono-operation {
-        display:block;
-      }
-    }
-    .mono-operation {
-      position: absolute;
-      left: $mono-operation-left;
-      top:$mono-operation-top;
-      display:none;
-      .mono-add-to-list {
-    //    background: $mono-add-to-list-bg;
-      }
-      .mono-add-to-list:hover {
-     //   background: $mono-add-to-list-bg-hover;
-      }
-      a {
-        display:block;
-        text-decoration: none;
-      //  width:$mono-operation-icon-size;
-      //  height:$mono-operation-icon-size;
-        
-      }
-      a:hover {
-      cursor:pointer;
-      }
     }
   }
   

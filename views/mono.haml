@@ -1,35 +1,55 @@
 
+- if @monos != nil
+  - @monos.each do |mono|
+    .input{:type=>"hidden", :name=>"keyword",  :value => mono }
 #monolist.section
-  
   - if @searchinfo != nil
     - @searchinfo['shops'].each do |shop|
       .slide
         .container
           .row
-            .col-lg-12
+            .col-lg-12.mono-container
               .title 
                 %h1 
                   = shop['shopName']
-              .category-list.renderable{:id => shop['shopCode'] }
-                
+              .category-list
+                %h2.category-title#suiei banana
+                .mono-list
+                  .mono-box
+                    %a.mono-avater(href="#")                  
+                      %img(src="/images/swimhat.jpg")
+                      .mono-price-corner
+                        %span.mono-price $1000
+                        %span.mono-price &nbsp;&nbsp;|&nbsp;&nbsp;
+                        %span.mono-point Point by 10
+                    .mono-info
+                      .mono-title
+                        %a(href="#")
+                          アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】
+                      .mono-rank
+                        %span 4.5 Rank
+                        &nbsp; &nbsp;
+                        %span 1432 Comments
   .slide
     .container
       .row
-        .col-lg-12
+        .col-lg-12.mono-container
           .title 
             %h1 萬屋    
           .category-list
             %h2.category-title#suiei banana
             .mono-list
-              %a.mono-box(href="#")
-                .mono-avater
+              .mono-box
+                %a.mono-avater(href="#")                  
                   %img(src="/images/swimhat.jpg")
                   .mono-price-corner
                     %span.mono-price $1000
                     %span.mono-price &nbsp;&nbsp;|&nbsp;&nbsp;
                     %span.mono-point Point by 10
                 .mono-info
-                  .mono-title アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】
+                  .mono-title
+                    %a(href="#")
+                      アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】
                   .mono-rank
                     %span 4.5 Rank
                     &nbsp; &nbsp;
@@ -72,31 +92,19 @@
                     .badge cheap
                     .badge nice
                     .badge speed
-              .mono-box
-                .mono-avater
-                  %img(src="")
-                test
-              .mono-box
-                %img(src="")
-                test
-              .mono-box
-                %img(src="")
-                test
-              .mono-box
-                %img(src="")
-                test
-              .clear
-  .slide
-    .container
-      .row
-        .col-lg-12
-          %h1 萬屋
-          .category-list
-            %h2.category-title suiei
-            .mono-list.row
-
+ 
 :javascript
+  var url = "item"
+  function get_shop_mono(id, keyword, mono_num) {
+  $.ajax(function(){
+  url: url,
+  data: {shopname : id, word : keyword ,item_num : mono_num},
+  dataType: "json",
+  success: function(data) {
   
+  }
+  });
+  }
   $(document).ready(function() {
   $('#monolist').fullpage( {
   scrollOverflow: true
