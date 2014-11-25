@@ -157,6 +157,9 @@ public class RakutenIchiba {
 
 	public Item getItemFromJson(String jsonString, int num) {
 		SearchResult searchResult = JSON.parseObject(jsonString, SearchResult.class);
+		List<HashMap<String, Item>> itemList = searchResult.getItems();
+		if(num >= itemList.size())
+			return null;
 		return searchResult.getItems().get(num).get("Item");
 	}
 	
