@@ -44,7 +44,7 @@ public class TestAPI {
 //		System.out.println(sd.findShops(words));
 		
 		ShopItemDetect sd = new ShopItemDetect();
-		System.out.println(sd.getItemsInShop("お茶", "2", "kenkocom"));
+		System.out.println(sd.getItemsInShop("お茶", "1", "kenkocom"));
 		
 	}
 
