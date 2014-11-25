@@ -13,86 +13,8 @@
                 %h1 
                   = shop['shopName']
               .category-list.renderable{:id => shop['shopCode']}
-                %h2.category-title banana
-                .mono-list
-                  .mono-box
-                    %a.mono-avater(href="#")                  
-                      %img(src="/images/swimhat.jpg")
-                      .mono-price-corner
-                        %span.mono-price $1000
-                        %span.mono-price &nbsp;&nbsp;|&nbsp;&nbsp;
-                        %span.mono-point Point by 10
-                    .mono-info
-                      .mono-title
-                        %a(href="#")
-                          アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】
-                      .mono-rank
-                        %span 4.5 Rank
-                        &nbsp; &nbsp;
-                        %span 1432 Comments
-  .slide
-    .container
-      .row
-        .col-lg-12.mono-container
-          .title 
-            %h1 萬屋    
-          .category-list
-            %h2.category-title#suiei banana
-            .mono-list
-              .mono-box
-                %a.mono-avater(href="#")                  
-                  %img(src="/images/swimhat.jpg")
-                  .mono-price-corner
-                    %span.mono-price $1000
-                    %span.mono-price &nbsp;&nbsp;|&nbsp;&nbsp;
-                    %span.mono-point Point by 10
-                .mono-info
-                  .mono-title
-                    %a(href="#")
-                      アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】
-                  .mono-rank
-                    %span 4.5 Rank
-                    &nbsp; &nbsp;
-                    %span 1432 Comments
-                  .mono-tag
-                    .badge cheap
-                    .badge nice
-                    .badge speed
-              .mono-box
-                .mono-avater
-                  %img(src="")
-                test
-              .mono-box
-                %img(src="")
-                test
-              .mono-box
-                %img(src="")
-                test
-              .mono-box
-                %img(src="")
-                test
-              .clear
-          .category-list
-            %h2.category-title#suiei banana
-            .mono-list
-              %a.mono-box(href="#")
-                .mono-avater
-                  %img(src="/images/swimhat.jpg")
-                  .mono-price-corner
-                    %span.mono-price $1000
-                    %span.mono-price &nbsp;&nbsp;|&nbsp;&nbsp;
-                    %span.mono-point Point by 10
-                .mono-info
-                  .mono-title アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】
-                  .mono-rank
-                    %span 4.5 Rank
-                    &nbsp; &nbsp;
-                    %span 1432 Comments
-                  .mono-tag
-                    .badge cheap
-                    .badge nice
-                    .badge speed
- 
+                %img.loading_img(src="/images/loading.gif")
+  
 :javascript
   var url = "http://localhost:9292/item";
   
@@ -101,9 +23,12 @@
   
   
   $(document).ready(function() {
-
+  function remove_loading(id) {
+  $("#" + id + " > .loading_img").remove();
+  //alert(id);
+  }
   
-  function get_shop_mono(id, keyword, mono_num) {
+  function get_shop_mono(id, keyword, mono_num, last) {
   //alert("SB");
   $.ajax( {
   url: url,
@@ -111,8 +36,8 @@
   data: {shopname: id, keyword: keyword, item_num: mono_num},
   dataType: 'json',
   success: function(data) {
-  var cate_template = '<h2 class="category-title">{::keyword::}</h2><div class="mono-list">{::monobox::}</div>';
-  var mono_template = '<div class="mono-box"><a class="mono-avater" href="{::itemUrl::}"><img src=""><div class="mono-price-corner"><span class="mono-price">{::itemPrice::} YEN</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">Point by {::itemPoint::}</span></div></a><div class="mono-info"><div class="mono-title"><a href="{::itemUrl::}">{::itemName::}</a></div><div class="mono-rank"><span>{::reviewAverage::}</span>&nbsp; &nbsp;<span>{::reviewCount::}</span></div></div></div>';
+  var cate_template = '<h2 class="category-title">{::keyword::}</h2><div class="mono-list">{::monobox::}<div class="clear"></div></div>';
+  var mono_template = '<div class="mono-box"><a class="mono-avater" href="{::itemUrl::}"><img src=""><div class="mono-price-corner"><span class="mono-price">{::itemPrice::} YEN</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">Point by {::itemPoint::}</span></div></a><div class="mono-info"><div class="mono-title"><a href="{::itemUrl::}">{::itemName::}</a></div><div class="mono-rank"><span>Rank: {::reviewAverage::}</span>&nbsp; &nbsp;<span>Reviews: {::reviewCount::}</span></div></div></div>';
   //alert(data['item']['itemName']);
   var str = "";
   var items = data['item'];
@@ -124,17 +49,17 @@
   .replace(/{::reviewAverage::/g, items['reviewAverage']).replace(/{::reviewCount::}/g, items['reviewCount']);
   //}
   var result = cate_template.replace(/{::keyword::}/g, keyword).replace(/{::monobox::}/g , str);
-  alert(result);
-  $("#"+id).html(result );
- 
-  //alert(data);
-  //alert(data);
-  //alert("SB");
+  //alert(result);
+  $("#" +id ).append(result);
+  if (last) {
+  remove_loading(id);
+  }
   }
   });
-  //alert(id + keyword + mono_num);
+  
   }
 
+  
   $('#monolist').fullpage( {
   scrollOverflow: true
   });
@@ -142,10 +67,19 @@
   
   var index = 0;
   $('.renderable').each(function() {
-  //alert("SB");
   if (index ++ < 3) {
   var id = $(this).attr('id');
-  get_shop_mono(id, $("input[name='keyword']").eq(0).val(), 1);
+  var count = 0;
+  var key_total = $("input[name='keyword']").length;
+  $("input[name='keyword']").each(function (){
+  //alert($(this).val());
+  if (++count <  key_total) {
+  get_shop_mono(id, $(this).val(), 1, false);
+  } else {
+  get_shop_mono(id, $(this).val(), 1, true);
+  }
+  });
+  
   }
   });
   
