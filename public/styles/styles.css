@@ -1,5 +1,8 @@
-body {
+#page-top, html, body {
   padding-top: 50px; }
+
+.cart-title {
+  text-align: center; }
 
 .bootstrap-tagsinput {
   width: 100%;

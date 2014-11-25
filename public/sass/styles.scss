@@ -1,12 +1,15 @@
 //@import "compass/css3/transition";
 
 
-body {
+#page-top, html,body {
   padding-top: 50px;
   
 }
 
 
+.cart-title {
+  text-align: center;
+}
 
 @mixin min-height($val){
   min-height:$val;

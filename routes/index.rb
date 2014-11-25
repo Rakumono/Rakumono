@@ -29,7 +29,12 @@ class RakApp < Sinatra::Base
   get '/shop' do
     haml :mono
   end
+  
 
+  get '/cart' do
+    haml :cart
+  end
+  
   post '/search' do
     #content_type :json
     keywords = params[:keyword].split ","

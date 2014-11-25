@@ -1,0 +1,62 @@
+.container
+  #cart.btn-group.btn-block.open
+    %button.btn.btn-block.btn-lg.dropdown-toggle(type="button" data-toggle="dropdown")
+      %i.fa.fa-shopping-cart
+      %span.hidden-md Cart:
+      %span#cart-total 2 items - $340.00
+      %i.fa.fa-caret-down
+    %ul.dropdown-menu.pull-right
+      %li
+        %table.table.table-striped.hcart
+          %tbody
+            %tr
+              %td.text-center
+                %a(href="#")
+                  %img.img-thumbnail.img-responsive(src="" alt="image" title="image")
+              %td.text-center
+                %a(href="#") Seeds
+              %td.text-right x 1
+              %td.text-right $12065
+              %td.text-center
+                %a(href="#")
+                  %i.fa.fa-times
+      %li
+        %p.text-right.btn-block1
+          %a(href="#") View Cart
+          %a(href="#") Checkout
+                
+  %h1.cart-title Shopping Cart
+  .table-responsive.shopping-cart-table
+    %table.table.table-bordered
+      %thead
+        %tr
+          %td.text-center Image
+          %td.text-center Product Details
+          %td.text-center Quantity
+          %td.text-center Price
+          %td.text-center Total
+          %td.text-center Action
+      %tbody
+        %tr
+          %td.text-center
+            %a(href="#") 
+              %img.img-thumbnail(src="/" alt="product name" title="product name")
+          %td
+            %a(href="#") Simple Organic seeds
+          %td
+            .input-group.btn-block
+              %input.form-control(type="text" name="quantity" value="1" size="1")
+          %td.text-center $150
+          %td.text-center $150
+          %td.text-center
+            %button.btn.btn-default.tool-tip(type="submit" title data-original-title="Update")
+              %i.fa.fa-refresh
+            %button.btn.btn-default.tool-tip(type="button" title data-original-title="Remove")
+              %i.fa.fa-times-circle
+      %tfoot
+        %tr
+          %td.text-right(colspan="4")
+            %strong Total:
+          %td.text-right(colspan="2")
+            $300
+
