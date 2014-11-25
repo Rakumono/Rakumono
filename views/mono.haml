@@ -37,7 +37,7 @@
   dataType: 'json',
   success: function(data) {
   var cate_template = '<h2 class="category-title">{::keyword::}</h2><div class="mono-list">{::monobox::}<div class="clear"></div></div>';
-  var mono_template = '<div class="mono-box"><a class="mono-avater" href="{::itemUrl::}"><img src=""><div class="mono-price-corner"><span class="mono-price">{::itemPrice::} YEN</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">Point by {::itemPoint::}</span></div></a><div class="mono-info"><div class="mono-title"><a href="{::itemUrl::}">{::itemName::}</a></div><div class="mono-rank"><span>Rank: {::reviewAverage::}</span>&nbsp; &nbsp;<span>Reviews: {::reviewCount::}</span></div></div></div>';
+  var mono_template = '<div class="mono-box"><a class="mono-avater" href="{::itemUrl::}"><button class="btn btn-danger cartbtn">add to cart</button><img src=""><div class="mono-price-corner"><span class="mono-price">{::itemPrice::} YEN</span></div></a><div class="mono-info"><div class="mono-title"><a href="{::itemUrl::}">{::itemName::}</a></div><div class="mono-rank"><span>Rank: {::reviewAverage::}</span>&nbsp; &nbsp;<span>Reviews: {::reviewCount::}</span></div></div></div>';
   //alert(data['item']['itemName']);
   var str = "";
   var items = data['item'];
@@ -46,11 +46,12 @@
   
   str += t.replace(/{::itemUrl::}/g, items['itemUrl']).replace(/{::itemPrice::}/g, items['itemPrice'])
   .replace(/{::itemPoint::}/g, items['itemPoint']).replace(/{::itemName::}/g, items['itemName'])
-  .replace(/{::reviewAverage::/g, items['reviewAverage']).replace(/{::reviewCount::}/g, items['reviewCount']);
+  .replace(/{::reviewAverage::}/g, items['reviewAverage']).replace(/{::reviewCount::}/g, items['reviewCount']);
   //}
   var result = cate_template.replace(/{::keyword::}/g, keyword).replace(/{::monobox::}/g , str);
   //alert(result);
-  $("#" +id ).append(result);
+  $(result).insertBefore($("#" + id + "> .loading_img"));
+  //$("#" +id ).append(result);
   if (last) {
   remove_loading(id);
   }
