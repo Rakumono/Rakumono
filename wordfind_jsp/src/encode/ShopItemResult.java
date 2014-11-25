@@ -1,11 +1,13 @@
 package encode;
 
+import java.util.List;
+
 import decode.Item;
 
 public class ShopItemResult {
 	private String shopCode;
 	private String keyword;
-	private Item item;
+	private List<Item> item;
 	public String getKeyword() {
 		return keyword;
 	}
@@ -18,11 +20,12 @@ public class ShopItemResult {
 	public void setShopCode(String shopCode) {
 		this.shopCode = shopCode;
 	}
-	public Item getItem() {
+	public List<Item> getItem() {
 		return item;
 	}
-	public void setItem(Item item) {
+	public void setItem(List<Item> item) {
 		this.item = item;
 	}
+
 
 }

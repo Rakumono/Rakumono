@@ -33,18 +33,18 @@ public class TestAPI {
 //		System.out.println(kd.findRelatedWords("青森", 10, 9));
 
 //		List<String> words = new ArrayList<String>();
-//		words.add("お茶");
-//		words.add("いちご");
-//		words.add("コーラ");
-//		words.add("焼き鳥");
-//		words.add("パン粉");
+//		words.add("ディオールスキン スター フルイド");
+//		words.add("フェイシャル トリートメント エッセンス");
+//		words.add("オリジナル ピュアスキンジェリー");
+//		words.add("ディオール アディクト リップ マキシマイザー");
+//		words.add("ジュ コントゥラスト");
 //		words.add("サラダ油");
 //		words.add("ポケットモンスタールビー");
 //		ShopDetect sd = new ShopDetect();
 //		System.out.println(sd.findShops(words));
 		
 		ShopItemDetect sd = new ShopItemDetect();
-		System.out.println(sd.getItemsInShop("お茶", "2", "kenkocom"));
+		System.out.println(sd.getItemsInShop("ジュ コントゥラスト", "5", "gardenia"));
 		
 	}
 
