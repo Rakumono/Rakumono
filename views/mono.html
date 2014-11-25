@@ -1,0 +1,116 @@
+<div class='section' id='monolist'>
+  <div class='slide'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-lg-12 mono-container'>
+          <div class='title'>
+            <h1>萬屋</h1>
+          </div>
+          <div class='category-list'>
+            <h2 class='category-title' id='suiei'>banana</h2>
+            <div class='mono-list'>
+              <div class='mono-box'>
+                <a class='mono-avater' href='#'>
+                  <img src='/images/swimhat.jpg'>
+                  <div class='mono-price-corner'>
+                    <span class='mono-price'>$1000</span>
+                    <span class='mono-price'>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <span class='mono-point'>Point by 10</span>
+                  </div>
+                </a>
+                <div class='mono-info'>
+                  <div class='mono-title'>
+                    <a href='#'>
+                      アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】
+                    </a>
+                  </div>
+                  <div class='mono-rank'>
+                    <span>4.5 Rank</span>
+                    &nbsp; &nbsp;
+                    <span>1432 Comments</span>
+                  </div>
+                  <div class='mono-tag'>
+                    <div class='badge'>cheap</div>
+                    <div class='badge'>nice</div>
+                    <div class='badge'>speed</div>
+                  </div>
+                </div>
+              </div>
+              <div class='mono-box'>
+                <div class='mono-avater'>
+                  <img src=''>
+                </div>
+                test
+              </div>
+              <div class='mono-box'>
+                <img src=''>
+                test
+              </div>
+              <div class='mono-box'>
+                <img src=''>
+                test
+              </div>
+              <div class='mono-box'>
+                <img src=''>
+                test
+              </div>
+              <div class='clear'></div>
+            </div>
+          </div>
+          <div class='category-list'>
+            <h2 class='category-title' id='suiei'>banana</h2>
+            <div class='mono-list'>
+              <a class='mono-box' href='#'>
+                <div class='mono-avater'>
+                  <img src='/images/swimhat.jpg'>
+                  <div class='mono-price-corner'>
+                    <span class='mono-price'>$1000</span>
+                    <span class='mono-price'>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <span class='mono-point'>Point by 10</span>
+                  </div>
+                </div>
+                <div class='mono-info'>
+                  <div class='mono-title'>アリーナ【arena】メッシュ キャップ ARN-13 水泳 スイミング プール 競泳 トレーニング メッシュ キャップ 帽子 水泳帽 【メンズ】【レディース】【FINA承認モデル】</div>
+                  <div class='mono-rank'>
+                    <span>4.5 Rank</span>
+                    &nbsp; &nbsp;
+                    <span>1432 Comments</span>
+                  </div>
+                  <div class='mono-tag'>
+                    <div class='badge'>cheap</div>
+                    <div class='badge'>nice</div>
+                    <div class='badge'>speed</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var url = "http://localhost:9292/item";
+  function get_shop_mono(id, keyword, mono_num) {
+      $.ajax(function(){
+	  url: url,
+	  data: {shopname : id, keyword : keyword , item_num : mono_num},
+	  dataType: "json",
+	  success: function(data) {
+	      alert(data);
+	  }
+      });
+  }
+  $(document).ready(function() {
+      $('#monolist').fullpage( {
+	  scrollOverflow: true
+      });
+      alert($("input[name=keyword]").eq[0]);
+      $('.renderable').each(function() {
+	  var id = $(this).attr('id');
+	  //get_shop_mono(id, $("input[name=keyword]").eq[0], 1);
+      });
+  
+  });
+</script>

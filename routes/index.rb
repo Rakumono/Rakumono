@@ -21,8 +21,9 @@ class RakApp < Sinatra::Base
 
   get '/item' do
     content_type :json
-    item_num = 3 unless params['item_num']
-    string = HTTP.get URI(URI::escape("#{API_HOST}api_num=2&shopname=#{params[:shopname]}&word=#{params[:keyword]}&item_num=#{item_num}"))
+    item_num = 0 #unless params['item_num']
+    puts URI::escape("#{API_HOST}api_num=2&shopname=#{params[:shopname]}&word=#{params[:keyword]}&num=#{item_num}")
+    string = HTTP.get URI(URI::escape("#{API_HOST}api_num=2&shopname=#{params[:shopname]}&word=#{params[:keyword]}&num=#{item_num}"))
   end
   
   get '/shop' do

@@ -1,7 +1,7 @@
 
 - if @monos != nil
   - @monos.each do |mono|
-    .input{:type=>"hidden", :name=>"keyword",  :value => mono }
+    %input{:type=>"hidden", :name=>"keyword", :value => mono }
 #monolist.section
   - if @searchinfo != nil
     - @searchinfo['shops'].each do |shop|
@@ -12,8 +12,8 @@
               .title 
                 %h1 
                   = shop['shopName']
-              .category-list
-                %h2.category-title#suiei banana
+              .category-list.renderable{:id => shop['shopCode']}
+                %h2.category-title banana
                 .mono-list
                   .mono-box
                     %a.mono-avater(href="#")                  
@@ -94,24 +94,59 @@
                     .badge speed
  
 :javascript
-  var url = "item"
-  function get_shop_mono(id, keyword, mono_num) {
-  $.ajax(function(){
-  url: url,
-  data: {shopname : id, word : keyword ,item_num : mono_num},
-  dataType: "json",
-  success: function(data) {
+  var url = "http://localhost:9292/item";
   
+  //alert($("input[name='keyword']").eq(0).val());
+  
+  
+  
+  $(document).ready(function() {
+
+  
+  function get_shop_mono(id, keyword, mono_num) {
+  //alert("SB");
+  $.ajax( {
+  url: url,
+  type: 'get',
+  data: {shopname: id, keyword: keyword, item_num: mono_num},
+  dataType: 'json',
+  success: function(data) {
+  var cate_template = '<h2 class="category-title">{::keyword::}</h2><div class="mono-list">{::monobox::}</div>';
+  var mono_template = '<div class="mono-box"><a class="mono-avater" href="{::itemUrl::}"><img src=""><div class="mono-price-corner"><span class="mono-price">{::itemPrice::} YEN</span><span class="mono-price">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="mono-point">Point by {::itemPoint::}</span></div></a><div class="mono-info"><div class="mono-title"><a href="{::itemUrl::}">{::itemName::}</a></div><div class="mono-rank"><span>{::reviewAverage::}</span>&nbsp; &nbsp;<span>{::reviewCount::}</span></div></div></div>';
+  //alert(data['item']['itemName']);
+  var str = "";
+  var items = data['item'];
+  //for (var i = 0; i < items.length; i ++) {
+  var t = mono_template;
+  
+  str += t.replace(/{::itemUrl::}/g, items['itemUrl']).replace(/{::itemPrice::}/g, items['itemPrice'])
+  .replace(/{::itemPoint::}/g, items['itemPoint']).replace(/{::itemName::}/g, items['itemName'])
+  .replace(/{::reviewAverage::/g, items['reviewAverage']).replace(/{::reviewCount::}/g, items['reviewCount']);
+  //}
+  var result = cate_template.replace(/{::keyword::}/g, keyword).replace(/{::monobox::}/g , str);
+  alert(result);
+  $("#"+id).html(result );
+ 
+  //alert(data);
+  //alert(data);
+  //alert("SB");
   }
   });
+  //alert(id + keyword + mono_num);
   }
-  $(document).ready(function() {
+
   $('#monolist').fullpage( {
   scrollOverflow: true
   });
+  
+  
+  var index = 0;
   $('.renderable').each(function() {
+  //alert("SB");
+  if (index ++ < 3) {
   var id = $(this).attr('id');
-  //$(this).html(get_shop_mono(id, '', 3));
+  get_shop_mono(id, $("input[name='keyword']").eq(0).val(), 1);
+  }
   });
   
   });
