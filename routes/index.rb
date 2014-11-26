@@ -55,5 +55,6 @@ class RakApp < Sinatra::Base
     @searchinfo = JSON.parse(string)
     haml :mono
   end
+  
 end
 

@@ -10,7 +10,12 @@
 .cart-title {
   text-align: center;
 }
-
+#cart {
+  button {
+    display:block;
+    height: 100%;
+  }
+}
 @mixin min-height($val){
   min-height:$val;
   height:auto !important;

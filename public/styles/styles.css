@@ -4,6 +4,10 @@
 .cart-title {
   text-align: center; }
 
+#cart button {
+  display: block;
+  height: 100%; }
+
 .bootstrap-tagsinput {
   width: 100%;
   min-height: 46px;
