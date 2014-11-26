@@ -14,12 +14,18 @@
                   = shop['shopName']
               .category-list.renderable{:id => shop['shopCode']}
                 %img.loading_img(src="/images/loading.gif")
-  
+
+#cart-foot
+  .container
+    .row
+      .col-lg-8.text-right
+        total:
+      .col-lg-4.text-right
+        %button.btn.btn-lg.btn-danger Add All to cart
 :javascript
-  var url = "http://localhost:9292/item";
+  var url = "item";
   
   //alert($("input[name='keyword']").eq(0).val());
-  
   
   
   $(document).ready(function() {
@@ -37,17 +43,20 @@
   dataType: 'json',
   success: function(data) {
   var cate_template = '<h2 class="category-title">{::keyword::}</h2><div class="mono-list">{::monobox::}<div class="clear"></div></div>';
-  var mono_template = '<div class="mono-box"><a class="mono-avater" href="{::itemUrl::}"><button class="btn btn-danger cartbtn">add to cart</button><img src=""><div class="mono-price-corner"><span class="mono-price">{::itemPrice::} YEN</span></div></a><div class="mono-info"><div class="mono-title"><a href="{::itemUrl::}">{::itemName::}</a></div><div class="mono-rank"><span>Rank: {::reviewAverage::}</span>&nbsp; &nbsp;<span>Reviews: {::reviewCount::}</span></div></div></div>';
+  var mono_template = '<div class="mono-box" code="{::itemCode::}"><a class="mono-avater" href="{::itemUrl::}"><button class="cart-btn togglable"><i class="fa fa-shopping-cart"></i></button><img src="{::imageUrl::}"><div class="mono-price-corner"><span class="mono-price">{::itemPrice::} YEN</span></div></a><div class="mono-info"><div class="mono-title"><a href="{::itemUrl::}">{::itemName::}</a></div><div class="mono-rank"><span>Rank: {::reviewAverage::}</span>&nbsp; &nbsp;<span>Reviews: {::reviewCount::}</span></div></div></div>';
   //alert(data['item']['itemName']);
   var str = "";
   var items = data['item'];
   //for (var i = 0; i < items.length; i ++) {
   var t = mono_template;
+  for (var i = 0; i < items.length; i ++)
+  {
+  var item = items[i];
+  str += t.replace(/{::itemUrl::}/g, item['itemUrl']).replace(/{::itemPrice::}/g, item['itemPrice'])
+  .replace(/{::itemPoint::}/g, item['itemPoint']).replace(/{::itemName::}/g, item['itemName'])
+  .replace(/{::reviewAverage::}/g, item['reviewAverage']).replace(/{::reviewCount::}/g, item['reviewCount']).replace(/{::imageUrl::}/g, item['imageUrl']);
   
-  str += t.replace(/{::itemUrl::}/g, items['itemUrl']).replace(/{::itemPrice::}/g, items['itemPrice'])
-  .replace(/{::itemPoint::}/g, items['itemPoint']).replace(/{::itemName::}/g, items['itemName'])
-  .replace(/{::reviewAverage::}/g, items['reviewAverage']).replace(/{::reviewCount::}/g, items['reviewCount']);
-  //}
+  }
   var result = cate_template.replace(/{::keyword::}/g, keyword).replace(/{::monobox::}/g , str);
   //alert(result);
   $(result).insertBefore($("#" + id + "> .loading_img"));
@@ -66,6 +75,10 @@
   });
   
   
+  $(".togglable").click(function(){
+  
+  });
+  
   var index = 0;
   $('.renderable').each(function() {
   if (index ++ < 3) {
@@ -75,9 +88,9 @@
   $("input[name='keyword']").each(function (){
   //alert($(this).val());
   if (++count <  key_total) {
-  get_shop_mono(id, $(this).val(), 1, false);
+  get_shop_mono(id, $(this).val(), 10, false);
   } else {
-  get_shop_mono(id, $(this).val(), 1, true);
+  get_shop_mono(id, $(this).val(), 10, true);
   }
   });
   

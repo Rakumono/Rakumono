@@ -2,11 +2,17 @@
 
 
 #page-top, html,body {
-  padding-top: 50px;
+  //padding-top: 50px;
   
 }
 
 
+// navigation
+
+.topnav {
+  background:transparent;
+  border: transparent;
+}
 .cart-title {
   text-align: center;
 }
@@ -38,15 +44,43 @@
     font-size: 100%;
   }
 }
+.intro-lead-in {
+  margin-bottom: 25px;
+  font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 40px;
+  font-style: italic;
+  line-height: 40px;
+}
+.intro-heading {
+  text-transform: uppercase;
+  font-family: Georgia,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 75px;
+}
 .intro-header {
   //padding-top:50px;
   position:relative;
   padding-top:10%;
   padding-bottom: 30%;
+ 
   //padding-bottom: 50px;
   text-align: center;
   color: #F8F8F8;
   background: url(../images/intro-bg.jpg) no-repeat scroll center center / cover transparent;
+  .background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+ 
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
   .intro-search{
     
   }
@@ -157,10 +191,20 @@ $mono-lg-h:200px;
   a:hover {
   cursor:pointer;
   }
-  .cartbtn {
+  .cart-btn {
     position: absolute;
     top: 10px;
     right: 10px;
+    background: transparent;
+    border: 0px transparent solid;
+    font-size: 30px;
+    display:block;
+    width:50px;
+    height:50px;
+  }
+
+  .mono-checked {
+    color: red;
   }
   .mono-avater {
     position: relative;
@@ -246,4 +290,17 @@ $mono-lg-h:200px;
   }
   
 }
+
+
+$cart-bg: rgba(200, 200, 0, 0.7);
+#cart-foot {
+  background: $cart-bg;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height:50px;
+  width: 100%;
+  
+}
+
 

@@ -1,5 +1,5 @@
 !!! 5
-%html(lang="ja")
+%html(lang="ja" xmlns:ng="https://angularjs.org" ng-app)
   %head
     %meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
     %link(rel="stylesheet" href="/vendors/bootstrap/css/bootstrap.min.css" )
@@ -17,38 +17,6 @@
     %script(src="/vendors/jquery.slimscroll.min.js")
     %script(src="/vendors/fullpage/jquery.fullPage.js")
     %title Index
-  %body#page-top
-    %nav.navbar.navbar-default.navbar-fixed-top
-      .container
-        .row
-          .col-lg-8
-            %button.navbar-toggle(data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button")
-            %span.sr-only RAKUMONO
-            %a.navbar-brand(href="#page-top") RAKUMONO
-          #cart.col-lg-4.bt.open
-            %button.btn.btn-block.btn-lg.dropdown-toggle(type="button" data-toggle="dropdown")
-              %i.fa.fa-shopping-cart
-              %span.hidden-md Cart:
-              %span#cart-total 2 items - $340.00
-              %i.fa.fa-caret-down
-            %ul.dropdown-menu.pull-right
-              %li
-                %table.table.table-striped.hcart
-                  %tbody
-                    %tr
-                      %td.text-center
-                        %a(href="#")
-                          %img.img-thumbnail.img-responsive(src="" alt="image" title="image")
-                      %td.text-center
-                        %a(href="#") Seeds
-                      %td.text-right x 1
-                      %td.text-right $12065
-                      %td.text-center
-                        %a(href="#")
-                          %i.fa.fa-times
-              %li
-                %p.text-right.btn-block1
-                  %a(href="#") View Cart
-                  %a(href="#") Checkout
+  %body#page-top(data-spy="scroll" data-target=".navbar-fixed-top")      
     = yield
     

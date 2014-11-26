@@ -1,5 +1,6 @@
-#page-top, html, body {
-  padding-top: 50px; }
+.topnav {
+  background: transparent;
+  border: transparent; }
 
 .cart-title {
   text-align: center; }
@@ -23,6 +24,20 @@
   .bootstrap-tagsinput .label {
     font-size: 100%; }
 
+.intro-lead-in {
+  margin-bottom: 25px;
+  font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 40px;
+  font-style: italic;
+  line-height: 40px; }
+
+.intro-heading {
+  text-transform: uppercase;
+  font-family: Georgia,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 75px; }
+
 .intro-header {
   position: relative;
   padding-top: 10%;
@@ -30,6 +45,16 @@
   text-align: center;
   color: #F8F8F8;
   background: url(../images/intro-bg.jpg) no-repeat scroll center center/cover transparent; }
+  .intro-header .background-image {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px); }
 
 .clear {
   clear: both; }
@@ -103,10 +128,18 @@
     text-decoration: none; }
   .mono-box a:hover {
     cursor: pointer; }
-  .mono-box .cartbtn {
+  .mono-box .cart-btn {
     position: absolute;
     top: 10px;
-    right: 10px; }
+    right: 10px;
+    background: transparent;
+    border: 0px transparent solid;
+    font-size: 30px;
+    display: block;
+    width: 50px;
+    height: 50px; }
+  .mono-box .mono-checked {
+    color: red; }
   .mono-box .mono-avater {
     position: relative;
     width: 300px;
@@ -166,4 +199,10 @@
     height: 200px;
     float: right; }
 
-/*# sourceMappingURL=styles.css.map */
+#cart-foot {
+  background: rgba(200, 200, 0, 0.7);
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 50px;
+  width: 100%; }
