@@ -27,12 +27,13 @@ class RakApp < Sinatra::Base
     string = HTTP.get URI(URI::escape("#{API_HOST}api_num=2&shopname=#{params[:shopname]}&word=#{params[:keyword]}&num=#{params[:item_num]}"))
     items = JSON.parse string
     items["item"].each do |item|
-      p item
+      #p item
       item[:imageUrl] = item["mediumImageUrls"][0]["imageUrl"].gsub '128x128', '300x300'
       item.delete_if do |k, v|
         ["mediumImageUrls", "smallImageUrls"].include? k
       end
     end
+    p items
     items.to_json
   end
   

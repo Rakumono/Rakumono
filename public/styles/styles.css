@@ -44,24 +44,41 @@
   padding-bottom: 30%;
   text-align: center;
   color: #F8F8F8;
-  background: url(../images/intro-bg.jpg) no-repeat scroll center center/cover transparent; }
-  .intro-header .background-image {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px); }
+  background: url(../images/intro-bg.jpg) no-repeat scroll center center/cover transparent;
+  /*
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  */ }
 
 .clear {
   clear: both; }
 
 #monolist {
-  padding-top: 50px;
-  background: #DDD; }
+  margin-bottom: 80px;
+  background: url(../images/bg1.jpg) no-repeat scroll center center/cover transparent;
+  z-index: 1;
+  /*
+  &:before {
+    z-index : -1;
+    position:fixed;
+    left: 0;
+    top:0;
+    width:1000px;
+    height:1000px;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    background: url(../images/bg1.jpg) no-repeat scroll center center / cover transparent;
+  }*/ }
+  #monolist .container {
+    z-index: 2;
+    height: auto;
+    background: rgba(255, 255, 255, 0.85); }
 
 .shop-list {
   height: 400px; }
@@ -109,12 +126,15 @@
 .mono-container {
   padding-left: 50px;
   padding-bottom: 100px; }
+  .mono-container .mono-list {
+    margin-bottom: 30px; }
 
 .mono-box {
   float: left;
   position: relative;
   text-align: center;
   display: block;
+  font-size: 14px;
   margin: 0px 30px 30px 0px;
   height: 460px;
   width: 300px;
@@ -123,6 +143,8 @@
   background: white;
   border: 1px solid #DDD;
   padding: 2px; }
+  .mono-box .category-title {
+    font-size: 24px; }
   .mono-box a {
     display: block;
     text-decoration: none; }
@@ -133,8 +155,8 @@
     top: 10px;
     right: 10px;
     z-index: 200;
-    background: transparent;
-    border: 0px transparent solid;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px #AAA solid;
     font-size: 30px;
     display: block;
     width: 50px;
@@ -148,8 +170,10 @@
     width: 300px;
     height: 300px;
     text-aligin: center;
-    display: block; }
+    display: block;
+    position: relative; }
     .mono-box .mono-avater img {
+      position: relative;
       display: block;
       margin: 0 auto;
       width: 300px;
@@ -182,10 +206,8 @@
   .mono-box .mono-point {
     color: white;
     font-size: 14px; }
-  .mono-box .mono-rank {
-    border-top: 1px dashed #AAA; }
   .mono-box .mono-rank span {
-    font-size: 11px; }
+    font-size: 14px; }
   .mono-box .mono-inner-box {
     width: 300px;
     overflow: hidden;
@@ -207,10 +229,11 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
-  height: 100px;
-  width: 100%; }
+  height: 80px;
+  width: 100%;
+  z-index: 10; }
   #cart-foot .price {
     font-size: 24px;
     color: #777; }
   #cart-foot .cart-area {
-    margin: 30px auto; }
+    margin: 20px auto; }
