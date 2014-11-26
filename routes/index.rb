@@ -12,7 +12,9 @@ class RakApp < Sinatra::Base
   get '/search' do
     haml :search
   end
-
+  get '/rakuten' do
+    erb :rakuten
+  end
   post '/' do
     content_type :json
     keywords = params[:keyword].split ","

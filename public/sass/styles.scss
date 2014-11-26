@@ -195,19 +195,23 @@ $mono-lg-h:200px;
     position: absolute;
     top: 10px;
     right: 10px;
+    z-index: 200;
     background: transparent;
     border: 0px transparent solid;
     font-size: 30px;
     display:block;
     width:50px;
     height:50px;
+    color: #777;
   }
-
+  .cart-selected {
+    color: red;
+  }
   .mono-checked {
     color: red;
   }
   .mono-avater {
-    position: relative;
+    
     width: $mono-box-avater-w;
     height: $mono-box-avater-h;
     text-aligin:center;
@@ -292,15 +296,22 @@ $mono-lg-h:200px;
 }
 
 
-$cart-bg: rgba(200, 200, 0, 0.7);
+$cart-bg: rgba(220, 220, 220, 0.8);
 #cart-foot {
   background: $cart-bg;
   position: absolute;
   bottom: 0px;
   left: 0px;
-  height:50px;
+  height:100px;
   width: 100%;
-  
+  .price{
+    font-size: 24px;
+    color: #777;
+  }
+  .cart-area {
+    margin: 30px auto;
+    
+  }
 }
 
 

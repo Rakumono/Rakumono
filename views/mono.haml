@@ -14,14 +14,18 @@
                   = shop['shopName']
               .category-list.renderable{:id => shop['shopCode']}
                 %img.loading_img(src="/images/loading.gif")
+                
 
 #cart-foot
-  .container
-    .row
-      .col-lg-8.text-right
-        total:
-      .col-lg-4.text-right
-        %button.btn.btn-lg.btn-danger Add All to cart
+  .cart-area
+    .container
+      .row
+        .col-lg-10.text-right
+          %span.price#total-price
+            &yen;&nbsp;&nbsp;0
+        .col-lg-2.text-left
+          %form(action="/rakuten.html" method="get")
+            %button.btn.btn-success(type="submit") Purchase All
 :javascript
   var url = "item";
   
@@ -43,7 +47,7 @@
   dataType: 'json',
   success: function(data) {
   var cate_template = '<h2 class="category-title">{::keyword::}</h2><div class="mono-list">{::monobox::}<div class="clear"></div></div>';
-  var mono_template = '<div class="mono-box" code="{::itemCode::}"><a class="mono-avater" href="{::itemUrl::}"><button class="cart-btn togglable"><i class="fa fa-shopping-cart"></i></button><img src="{::imageUrl::}"><div class="mono-price-corner"><span class="mono-price">{::itemPrice::} YEN</span></div></a><div class="mono-info"><div class="mono-title"><a href="{::itemUrl::}">{::itemName::}</a></div><div class="mono-rank"><span>Rank: {::reviewAverage::}</span>&nbsp; &nbsp;<span>Reviews: {::reviewCount::}</span></div></div></div>';
+  var mono_template = '<div class="mono-box" code="{::itemCode::}"><button class="cart-btn togglable" toggled="false" price="{::itemPrice::}"><i class="fa fa-shopping-cart"></i></button><a class="mono-avater" href="{::itemUrl::}"><img src="{::imageUrl::}"><div class="mono-price-corner"><span class="mono-price">{::itemPrice::} YEN</span></div></a><div class="mono-info"><div class="mono-title"><a href="{::itemUrl::}">{::itemName::}</a></div><div class="mono-rank"><span>Rank: {::reviewAverage::}</span>&nbsp; &nbsp;<span>Reviews: {::reviewCount::}</span></div></div></div>';
   //alert(data['item']['itemName']);
   var str = "";
   var items = data['item'];
@@ -60,9 +64,12 @@
   var result = cate_template.replace(/{::keyword::}/g, keyword).replace(/{::monobox::}/g , str);
   //alert(result);
   $(result).insertBefore($("#" + id + "> .loading_img"));
+  
+  
   //$("#" +id ).append(result);
   if (last) {
   remove_loading(id);
+  
   }
   }
   });
@@ -74,9 +81,24 @@
   scrollOverflow: true
   });
   
-  
-  $(".togglable").click(function(){
-  
+  var totalprice = 0;
+  $("#monolist").on('click', '.togglable', function(){
+  //alert("SB");
+  //alert($(this).attr("toggled"));
+  function refreshTotalPrice() {
+  $("#total-price").html("&yen;&nbsp;&nbsp;" + totalprice);
+  }
+  if ($(this).attr("toggled") == "false") {
+  $(this).attr("toggled" ,"true");
+  $(this).addClass("cart-selected");
+  totalprice += parseInt($(this).attr("price"));
+  refreshTotalPrice();
+  } else {
+  $(this).attr("toggled" , "false");
+  $(this).removeClass("cart-selected");
+  totalprice -= parseInt($(this).attr("price"));
+  refreshTotalPrice();
+  }
   });
   
   var index = 0;
