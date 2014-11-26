@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 require 'net/http'
 require 'json'
 
@@ -21,9 +22,16 @@ class RakApp < Sinatra::Base
 
   get '/item' do
     content_type :json
-    item_num = 0 #unless params['item_num']
-    puts URI::escape("#{API_HOST}api_num=2&shopname=#{params[:shopname]}&word=#{params[:keyword]}&num=#{item_num}")
-    string = HTTP.get URI(URI::escape("#{API_HOST}api_num=2&shopname=#{params[:shopname]}&word=#{params[:keyword]}&num=#{item_num}"))
+    string = HTTP.get URI(URI::escape("#{API_HOST}api_num=2&shopname=#{params[:shopname]}&word=#{params[:keyword]}&num=#{params[:item_num]}"))
+    items = JSON.parse string
+    items["item"].each do |item|
+      p item
+      item[:imageUrl] = item["mediumImageUrls"][0]["imageUrl"].gsub '128x128', '300x300'
+      item.delete_if do |k, v|
+        ["mediumImageUrls", "smallImageUrls"].include? k
+      end
+    end
+    items.to_json
   end
   
   get '/shop' do
