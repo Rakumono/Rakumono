@@ -157,6 +157,7 @@
     right: 10px;
     z-index: 200;
     background: rgba(255, 255, 255, 0.8);
+    border: 0px transparent solid;
     font-size: 30px;
     display: block;
     width: 50px;
