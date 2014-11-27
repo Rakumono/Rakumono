@@ -54,7 +54,7 @@
   data: {shopname: id, keyword: keyword, item_num: mono_num},
   dataType: 'json',
   success: function(data) {
-  var cate_template = '<h2 class="category-title">{::keyword::}</h2><div class="mono-list">{::monobox::}<div class="clear"></div></div>';
+  var cate_template = '<h2 class="category-title">{::keyword::}</h2><div class="mono-list"><button class="folder-btn "><i class="fa fa-chevron-down"></i></button>{::monobox::}<div class="clear"></div></div>';
   var mono_template = '<div class="mono-box" code="{::itemCode::}"><button class="cart-btn togglable" toggled="false" price="{::itemPrice::}"><i class="fa fa-shopping-cart"></i></button><a class="mono-avater" href="{::itemUrl::}"><img src="{::imageUrl::}"><div class="mono-price-corner"><span class="mono-price">&yen;&nbsp;{::itemPrice::} </span></div></a><div class="mono-info"><div class="mono-title"><a href="{::itemUrl::}">{::itemName::}</a></div><div class="mono-rank"><span>Rank: {::reviewAverage::}</span>&nbsp; &nbsp;<span>Reviews: {::reviewCount::}</span></div></div></div>';
   //alert(data['item']['itemName']);
   var str = "";
@@ -85,6 +85,9 @@
   });
   
   var totalprice = 0;
+  $("#monolist").on('click', '.folder-btn', function(){
+  
+  });
   $("#monolist").on('click', '.togglable', function(){
   //alert("SB");
   //alert($(this).attr("toggled"));
